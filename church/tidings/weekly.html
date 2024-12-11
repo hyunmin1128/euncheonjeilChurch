@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은천제일교회</title>
+    <link rel="stylesheet" href="./weekly.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="./weekly.html">주보 게시판</a></li>
+                        <li><a href="./notification.html">공지사항</a></li>
+                        <li><a href="./gallery.html">갤러리</a></li>
+                        <li><a href="./pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+    <div class="container">
+        <div class="left-panel">
+            <img id="bulletin-image" src="../image/weekly/241117_1.png" alt="주보 이미지" />
+            <img id="bulletin-image" src="../image/weekly/241117_2.png" alt="주보 이미지" />
+        </div>
+        <div class="right-panel">
+            <ul>
+                <li><a href="#" onclick="showBulletin(1)">날짜 1</a></li>
+                <li><a href="#" onclick="showBulletin(2)">날짜 2</a></li>
+                <li><a href="#" onclick="showBulletin(3)">날짜 3</a></li>
+                <li><a href="#" onclick="showBulletin(4)">날짜 4</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Euncheon Is Church</p>
+    </footer>
+
+    <script src="./weekly.js"></script>
+
+    <script src="../main/euncheon.js"></script>
+
+
+</html>

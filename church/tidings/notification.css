@@ -1,0 +1,206 @@
+/* 기본 스타일 */
+body,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* body를 flex 컨테이너로 설정 */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* main에 flex-grow 설정 */
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* 헤더 스타일 */
+header {
+  display: flex;
+  justify-content: center;
+  /* 가운데 정렬 */
+  align-items: center;
+  padding: 1.5em;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+header .logo {
+  position: absolute;
+  left: 1em;
+  /* 로고를 왼쪽에 고정 */
+}
+
+header .logo img {
+  width: 200px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 2em;
+  /* 메뉴 항목 간격 설정 */
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 150%;
+  color: #333;
+  padding: 1em 2em;
+}
+/* 일반 드롭다운 메뉴 옆에 화살표 추가 */
+nav ul li > a::after {
+  content: "";
+  border: solid #333;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  transform: rotate(45deg); /* 화살표 모양을 만들기 위한 회전 */
+}
+
+/* 드롭다운 활성화 시 화살표 제거 */
+nav ul li:hover > a::after {
+  content: none;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown,
+.sub-dropdown {
+  display: none;
+  /* 기본적으로 숨김 */
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown {
+  top: 100%;
+  /* 상단 메뉴 바로 아래에 나타나도록 설정 */
+  min-width: 150px;
+  white-space: nowrap; 
+}
+
+/* 드롭다운 항목 */
+.dropdown li a,
+.sub-dropdown li a {
+  padding: 0.5em 1em;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown li a:hover,
+.sub-dropdown li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
+nav ul li:hover > .dropdown,
+.dropdown li:hover > .sub-dropdown {
+  display: block;
+}
+
+
+.notification-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.notification-section h1 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+#notification-list {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#notification-list div {
+  margin-bottom: 10px;
+}
+
+#notification-list div button {
+  margin-left: 10px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#notification-list div button:hover {
+  background-color: #cc0000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

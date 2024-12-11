@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교회 소개</title>
+    <link rel="stylesheet" href="./churchIntroduce.css">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="./churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="./pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="./ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="./newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="./servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="./directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="../tidings/weekly.html">주보 게시판</a></li>
+                        <li><a href="../tidings/notification.html">공지사항</a></li>
+                        <li><a href="../tidings/gallery.html">갤러리</a></li>
+                        <li><a href="../tidings/pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+
+    <div class="churchIntroduce-container">
+        <h2 class="h2-centered">교회 소개</h2>
+    </div>
+
+    <main class="main-content">
+        <section class="content-container">
+            <div class="photo-section">
+                <img src="../image/churchIntroduce.png" alt="교회 사진" class="church-photo">
+            </div>
+            <div class="info-section">
+                <div class="upper-info">
+                    <h1 class="main-title">교회 연혁</h1>
+                    <p class="history">여기에 교회의 연혁에 대한 내용을 적습니다.</p>
+                    <h2 class="main-title">슬로건</h2>
+                    <p class="slogan">보라 내가 새 일을 행하리니 이제 나타낼 것이라 너희가 그것을 알지 못하겠느냐 반드시 내가 광야에 길을 사막에 강을 내리니(사43:19)</p>
+                </div>
+                <div class="cards-section">
+                    <div class="card">
+                        <div class="icon-circle">
+                            <img src="../image/Icon/learn_icon2.png" alt="배우는 교회 아이콘">
+                        </div>
+                        <h2>배우는 교회</h2>
+                        <p>영아부부터 장년에 이르기까지<br>하나님의 말씀을 가르치고<br>진리를 배우는 교회</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon-circle">
+                            <img src="../image/Icon/church_icon.png" alt="섬기는 교회 아이콘">
+                        </div>
+                        <h2>섬기는 교회</h2>
+                        <p>온 성도가 예배와 헌신과 봉사로<br>하나님 나라를 세우고 이루는<br>은혜로 섬기는 교회</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon-circle">
+                            <img src="../image/Icon/heart_icon.png" alt="나누는 교회 아이콘">
+                        </div>
+                        <h2>나누는 교회</h2>
+                        <p>지역과 열방에 예수 그리스도의 말씀과<br>복음을 전하고, 이웃을 향하여<br>사랑을 나누는 교회</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Euncheon Is Church</p>
+    </footer>
+
+    <script src="../main/euncheon.js"></script>
+</body>
+
+</html>

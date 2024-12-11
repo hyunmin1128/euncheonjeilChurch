@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pray Guide</title>
+    <link rel="stylesheet" href="./pray.css"> <!-- 필요 시 스타일 추가 -->
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="./weekly.html">주보 게시판</a></li>
+                        <li><a href="./notification.html">공지사항</a></li>
+                        <li><a href="./gallery.html">갤러리</a></li>
+                        <li><a href="./pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+
+    <main>
+        <!-- 기도 요청 섹션 -->
+        <section class="pray-section">
+            <header>
+                <h1>기도 요청 목록</h1>
+                <button onclick="location.href='prayWrite.html'">기도 작성하기</button>
+            </header>
+        </section>
+    
+        <!-- 고정글 섹션 -->
+        <section class="fixed-section">
+            <h2>고정글</h2>
+            <div id="fixed-posts">
+                <p>고정글이 없습니다. 새로운 고정글을 작성하세요!</p>
+            </div>
+            <button onclick="openModal()">고정글 작성</button>
+        </section>
+    
+        <!-- 기도 요청 리스트 섹션 -->
+        <section class="pray-list-section">
+            <div id="pray-list">
+                <p>등록된 기도 요청이 없습니다.</p>
+            </div>
+        </section>
+    
+        <!-- 고정글 작성/수정 모달 -->
+        <div id="fixed-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="modal-title">고정글 작성</h3>
+                <textarea id="fixed-input" rows="5" placeholder="고정글 내용을 입력하세요" style="width: 100%;"></textarea>
+                <button onclick="saveFixedPost()">저장</button>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script src="./pray.js"></script>
+    <footer>
+        <p>&copy; 2024 Euncheon Guide</p>
+    </footer>
+</body>
+</html>

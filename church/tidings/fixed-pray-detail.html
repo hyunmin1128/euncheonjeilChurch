@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pray Guide</title>
+    <link rel="stylesheet" href="./pray.css"> <!-- 필요 시 스타일 추가 -->
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="./weekly.html">주보 게시판</a></li>
+                        <li><a href="./notification.html">공지사항</a></li>
+                        <li><a href="./gallery.html">갤러리</a></li>
+                        <li><a href="./pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+    <main>
+        <article id="fixed-detail">
+            <h2 id="fixed-title">고정글 제목</h2>
+            <p id="fixed-content">고정글 내용</p>
+        </article>
+        <button onclick="history.back()">돌아가기</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Euncheon Guide</p>
+    </footer>
+    <script src="fixed-pray-detail.js"></script>
+</body>
+</html>

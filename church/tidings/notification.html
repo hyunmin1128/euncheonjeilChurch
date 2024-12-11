@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은천제일교회</title>
+    <link rel="stylesheet" href="./notification.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="./weekly.html">주보 게시판</a></li>
+                        <li><a href="./notification.html">공지사항</a></li>
+                        <li><a href="./gallery.html">갤러리</a></li>
+                        <li><a href="./pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+
+    <main>
+        <section class="notification-section">
+            <h1>교회 소식</h1>
+            <div id="notification-list">
+                <p>등록된 소식이 없습니다.</p>
+            </div>
+            <button onclick="openModal()">새 소식 작성</button>
+        </section>
+
+        <!-- 소식 작성/수정 모달 -->
+        <div id="notification-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="modal-title">새 소식 작성</h3>
+                <textarea id="notification-input" rows="5" placeholder="소식을 입력하세요"></textarea>
+                <button onclick="saveNotification()">저장</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 은천제일교회</p>
+    </footer>
+
+    <script src="./notification.js"></script>
+</body>
+</html>

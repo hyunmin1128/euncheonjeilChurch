@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은천제일교회</title>
+    <link rel="stylesheet" href="./euncheon.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="./euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="../tidings/weekly.html">주보 게시판</a></li>
+                        <li><a href="../tidings/notification.html">공지사항</a></li>
+                        <li><a href="../tidings/gallery.html">갤러리</a></li>
+                        <li><a href="../tidings/pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="signupButton" onclick="openModal()">회원가입</button>
+            <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        </div>
+
+        <div id="signupModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <label for="usernameInput">닉네임:</label>
+                <input type="text" id="usernameInput">
+                <label for="userIdInput">ID:</label>
+                <input type="text" id="userIdInput">
+                <label for="passwordInput">PW:</label>
+                <input type="password" id="passwordInput">
+                <button onclick="signup()">회원가입</button>
+                <button onclick="closeModal()">닫기</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 슬라이더 -->
+        <section class="slider">
+            <div class="slide active">
+                <img src="../image/Slide/SlideImage1.jpeg" alt="슬라이드 이미지 1">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage2.jpeg" alt="슬라이드 이미지 2">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage3.jpeg" alt="슬라이드 이미지 3">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage4.jpeg" alt="슬라이드 이미지 4">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage5.jpeg" alt="슬라이드 이미지 5">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage6.jpeg" alt="슬라이드 이미지 6">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage7.jpeg" alt="슬라이드 이미지 7">
+            </div>
+            <div class="slide">
+                <img src="../image/Slide/SlideImage8.jpeg" alt="슬라이드 이미지 8">
+            </div>
+        </section>
+
+        <!-- 공지, 주보, 기도, 갤러리 섹션 -->
+        <section class="sections">
+            <section id="notification">
+                <div class="section-header">
+                    <h2>공지</h2>
+                    <a href="../tidings/notification.html" class="button">+</a>
+                </div>
+                <p>여기에 공지사항이 들어갑니다.</p>
+            </section>
+
+            <section id="weekly">
+                <div class="section-header">
+                    <h2>주보</h2>
+                    <a href="../tidings/weekly.html" class="button">+</a>
+                </div>
+                <p>여기에 주보가 들어갑니다.</p>
+            </section>
+
+            <section id="pray">
+                <div class="section-header">
+                    <h2>기도</h2>
+                    <a href="../tidings/pray.html" class="button">+</a>
+                </div>
+                <p>여기에 기도가 들어갑니다.</p>
+            </section>
+
+            <section id="gallery">
+                <div class="section-header">
+                    <h2>갤러리</h2>
+                    <a href="../tidings/gallery.html" class="button">+</a>
+                </div>
+                <p>여기에 갤러리가 들어갑니다.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Euncheon Is Church</p>
+    </footer>
+
+    <script src="./euncheon.js"></script>
+
+
+</body>
+
+</html>

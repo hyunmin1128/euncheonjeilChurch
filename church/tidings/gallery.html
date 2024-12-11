@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은천제일교회</title>
+    <link rel="stylesheet" href="../main/euncheon.css">
+    <link rel="stylesheet" href="./gallery.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="../worship/worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="../worship/sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="./weekly.html">주보 게시판</a></li>
+                        <li><a href="./notification.html">공지사항</a></li>
+                        <li><a href="./gallery.html">갤러리</a></li>
+                        <li><a href="./pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="signupButton" onclick="openModal()">회원가입</button>
+            <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        </div>
+
+        <div id="signupModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <label for="usernameInput">닉네임:</label>
+                <input type="text" id="usernameInput">
+                <label for="userIdInput">ID:</label>
+                <input type="text" id="userIdInput">
+                <label for="passwordInput">PW:</label>
+                <input type="password" id="passwordInput">
+                <button onclick="signup()">회원가입</button>
+                <button onclick="closeModal()">닫기</button>
+            </div>
+        </div>
+    </header>
+
+    <body>
+
+        <main>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openModal(0)">
+                    <img src="../image/Gallery/gallery1.jpeg" alt="Image 1">
+                    <p class="description">이미지 1 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(1)">
+                    <img src="../image/Gallery/gallery2.jpeg" alt="Image 2">
+                    <p class="description">이미지 2 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(2)">
+                    <img src="../image/Gallery/gallery3.jpeg" alt="Image 3">
+                    <p class="description">이미지 3 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(3)">
+                    <img src="../image/Gallery/gallery4.jpeg" alt="Image 3">
+                    <p class="description">이미지 4 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(4)">
+                    <img src="../image/Gallery/gallery5.jpeg" alt="Image 3">
+                    <p class="description">이미지 5 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(5)">
+                    <img src="../image/Gallery/gallery6.jpeg" alt="Image 3">
+                    <p class="description">이미지 6 설명</p>
+                </div>
+                <div class="gallery-item" onclick="openModal(6)">
+                    <img src="../image/Gallery/gallery7.jpeg" alt="Image 3">
+                    <p class="description">이미지 7 설명</p>
+                </div>
+                <!-- 추가적인 이미지 아이템을 이곳에 추가할 수 있습니다 -->
+            </div>
+        </main>
+        <div id="modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-img" class="modal-content">
+            <p id="modal-caption" class="caption"></p>
+        </div>
+        <script src="./gallery.js"></script>
+    </body>
+
+    <footer>
+        <p>&copy; 2024 Euncheon Guide</p>
+    </footer>
+</body>
+
+</html>
