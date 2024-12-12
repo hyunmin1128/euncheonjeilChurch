@@ -1,23 +1,23 @@
-// 페이지 로드 시 지도 초기화
-function initMap() {
-    // 지도의 중심 위치 설정 (예: 서울)
-    const mapCenter = new kakao.maps.LatLng(37.4868413825609, 126.939647423375);
-
-    // 지도 옵션 설정
-    const mapOptions = {
-      center: mapCenter, // 지도 중심 좌표
-      level: 3 // 지도 확대 레벨 (낮을수록 확대)
-    };
-
-    // 지도를 지정한 HTML 요소에 표시
-    const map = new kakao.maps.Map(document.getElementById('map'), mapOptions);
-
-    // 마커 추가
-    const marker = new kakao.maps.Marker({
-      position: mapCenter,
-      map: map
-    });
+window.onload = function () {
+  if (typeof kakao === "undefined") {
+      console.error("Kakao API 로드 실패");
+      return;
   }
+  var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+  var mapOption = {
+      center: new kakao.maps.LatLng(37.486803, 126.937059), // 지도의 중심 좌표
+      level: 3 // 확대 레벨
+  };
+  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
 
-  // 페이지 로드 후 initMap 함수 호출
-  window.onload = initMap;
+  var markerPosition = new kakao.maps.LatLng(37.486803, 126.937059);
+  var marker = new kakao.maps.Marker({
+      position: markerPosition
+  });
+  marker.setMap(map);
+
+  var infowindow = new kakao.maps.InfoWindow({
+      content: '<div style="padding:5px;">은천제일교회</div>'
+  });
+  infowindow.open(map, marker);
+};

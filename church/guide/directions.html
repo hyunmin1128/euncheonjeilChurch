@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>은천제일교회</title>
     <link rel="stylesheet" href="./directions.css" />
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=ad0fcf1de79e30c26af3662e89a6dee7&libraries=services,clusterer,drawing"></script>
+
 </head>
 
 <body>
@@ -45,25 +47,20 @@
             </ul>
         </nav>
         <button class="login-btn" onclick="openModal()">로그인</button>
-
-        <script type="text/javascript"
-            src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c952fe01d7e7f35d7033bf6d28d8c5be"></script>
-    </header>
+        </header>
 
     <body>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.8950564101992!2d126.93705907567856!3d37.48680277205929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f9094b5c799%3A0x2a6a81de96c6a6de!2z7J2A7LKc7KCc7J286rWQ7ZqM!5e0!3m2!1sko!2skr!4v1733287817338!5m2!1sko!2skr"
-            width="flex" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p>08715 서울특별시 관악구 국회단지길 14</p>
+        <h2>오시는 길</h2>
+        <div id="map"></div>
+        <p>08715 서울특별시 관악구 국회단지길 14</p>    
+          
     </body>
     <footer>
         <p>&copy; 2024 Euncheon Is Church</p>
     </footer>
 
-    <script src="./directions.js"></script>
-
-    <script src="../main/euncheon.js"></script>
+    
+    <script src="./directions.js"></script>/
 </body>
 
 </html>
