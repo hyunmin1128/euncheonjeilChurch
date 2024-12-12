@@ -7,70 +7,103 @@
     <title>gallery Guide</title>
     <link rel="stylesheet" href="./worshipIntroduce.css"> <!-- 필요 시 스타일 추가 -->
 </head>
-<header>
-    <a class="logo" href="../main/euncheon.html">
-        <img src="../image/euncheonlogo.png" alt="은천제일교회">
-    </a>
-    <nav>
-        <ul>
-            <li>
-                <a href="#guide">교회안내</a>
-                <ul class="dropdown">
-                    <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
-                    <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
-                    <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
-                    <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
-                    <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
-                    <li><a href="../guide/directions.html">오시는 길</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#worship">예배</a>
-                <ul class="dropdown">
-                    <li><a href="./worshipIntroduce.html">예배 안내</a></li>
-                    <li><a href="./sundaySchool.html">교회학교</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#tidings">소식</a>
-                <ul class="dropdown">
-                    <li><a href="../tidings/weekly.html">주보 게시판</a></li>
-                    <li><a href="../tidings/notification.html">공지사항</a></li>
-                    <li><a href="../tidings/gallery.html">갤러리</a></li>
-                    <li><a href="../tidings/pray.html">중보 기도방</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <button class="login-btn" onclick="openModal()">로그인</button>
-</header>
 
-<div class="worship-container">
-    <h2>예배 안내</h2>
-    <div class="worship-blocks">
-        <div class="worship-block">
-            <h3>새벽 예배</h3>
-            <p>일시: 평일</p>
-            <p>시간: 오전 5시</p>
+<body>
+    <header>
+        <a class="logo" href="../main/euncheon.html">
+            <img src="../image/euncheonlogo.png" alt="은천제일교회">
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#guide">교회안내</a>
+                    <ul class="dropdown">
+                        <li><a href="../guide/churchIntroduce.html">교회 소개</a></li>
+                        <li><a href="../guide/pastorIntroduce.html">담임목사 소개</a></li>
+                        <li><a href="../guide/ministerIntroduce.html">교역자 소개</a></li>
+                        <li><a href="../guide/newFamilyIntroduce.html">새가족 안내</a></li>
+                        <li><a href="../guide/servants.html">섬기는 사람들 소개</a></li>
+                        <li><a href="../guide/directions.html">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#worship">예배</a>
+                    <ul class="dropdown">
+                        <li><a href="./worshipIntroduce.html">예배 안내</a></li>
+                        <li><a href="./sundaySchool.html">교회학교</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tidings">소식</a>
+                    <ul class="dropdown">
+                        <li><a href="../tidings/weekly.html">주보 게시판</a></li>
+                        <li><a href="../tidings/notification.html">교회소식</a></li>
+                        <li><a href="../tidings/gallery.html">갤러리</a></li>
+                        <li><a href="../tidings/pray.html">중보 기도방</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn" onclick="openModal()">로그인</button>
+    </header>
+
+    <div class="worship-container">
+        <h2>예배 안내</h2>
+        <div class="worship-blocks">
+            <div class="worship-block">
+                <h3>새벽 예배</h3>
+                <p>일시: 평일</p>
+                <p>장소: 2층 본당</p>
+                <p>시간: 오전 5시</p>
+            </div>
+            <div class="worship-block">
+                <h3>수요 기도회</h3>
+                <p>일시: 수요일</p>
+                <p>장소: 2층 본당</p>
+                <p>시간: 오후 7시 30분</p>
+            </div>
+            <div class="worship-block">
+                <h3>주일 예배</h3>
+                <p>일시: 매주 일요일</p>
+                <p>장소: 2층 본당</p>
+                <p>시간: 오전 11시</p>
+            </div>
+            <div class="worship-block">
+                <h3>주일 오후 예배</h3>
+                <p>일시: 매주 일요일</p>
+                <p>장소: 2층 본당</p>
+                <p>시간: 오후 2시</p>
+            </div>
         </div>
-        <div class="worship-block">
-            <h3>주일 예배</h3>
-            <p>일시: 매주 일요일</p>
-            <p>시간: 오전 11시</p>
-        </div>
-        <div class="worship-block">
-            <h3>주일 오후 예배</h3>
-            <p>일시: 매주 일요일</p>
-            <p>시간: 오후 2시</p>
-        </div>
-        
     </div>
-</div>
-<footer>
-    <p>&copy; 2024 Euncheon Is Church</p>
-</footer>
 
-<script src="../main/euncheon.js"></script>
+    <!-- 지난 예배 소개 섹션 -->
+    <div class="past-worship-container">
+        <h2>지난 예배 소개</h2>
+        <div class="youtube-videos">
+            <!-- 유튜브 동영상 또는 링크 삽입 -->
+            <div class="video-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/x6OgLm-I4Fc?si=i1kgWZYEM3XA92SV"
+                    title="지난 예배 영상 1" frameborder=" 0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>2024년 12월 8일 주일 예배</p>
+            </div>
+            <div class="video-item">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/EmWd0G64pq0?si=iEDz7zSoLu48I-iK"
+                    title="지난 예배 영상 2" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>2024년 12월 11일 수요 기도회</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Euncheon Is Church</p>
+    </footer>
+
+    <script src="../main/euncheon.js"></script>
 
 </body>
 

@@ -6,7 +6,7 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: Arial, sans-serif;
+  font-family: 'Pretendard', Arial, sans-serif; /* 서체 변경 */
 }
 
 html,
@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff); /* 부드러운 배경 그라데이션 */
 }
 
 /* main에 flex-grow 설정 */
@@ -33,7 +34,6 @@ main {
 header {
   display: flex;
   justify-content: center;
-  /* 모든 요소를 수평으로 가운데 정렬 */
   align-items: center;
   padding: 1em;
   background-color: #f5f5f5;
@@ -43,7 +43,6 @@ header {
 header .logo {
   position: absolute;
   left: 1em;
-  /* 로고를 왼쪽에 고정 */
 }
 
 header .logo img {
@@ -54,7 +53,6 @@ header .logo img {
 nav ul {
   display: flex;
   gap: 2em;
-  /* 메뉴 항목 간격 설정 */
 }
 
 nav ul li {
@@ -71,7 +69,6 @@ nav ul li a {
 .dropdown,
 .sub-dropdown {
   display: none;
-  /* 기본적으로 숨김 */
   position: absolute;
   left: 0;
   background-color: #fff;
@@ -79,28 +76,22 @@ nav ul li a {
   z-index: 1000;
 }
 
-/* 드롭다운 메뉴 스타일 */
 .dropdown {
   top: 100%;
-  /* 상단 메뉴 바로 아래에 나타나도록 설정 */
   min-width: 150px;
 }
 
 .dropdown li {
   position: relative;
-  /* 하위 드롭다운을 위한 상대 위치 */
 }
 
-/* 서브 드롭다운 메뉴 스타일 */
 .sub-dropdown {
   top: 0;
   left: 100%;
-  /* 오른쪽에 나타나도록 설정 */
   min-width: 150px;
   margin-top: -10px;
 }
 
-/* 드롭다운 항목 */
 .dropdown li a,
 .sub-dropdown li a {
   padding: 0.5em 1em;
@@ -114,7 +105,6 @@ nav ul li a {
   background-color: #f0f0f0;
 }
 
-/* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
 nav ul li:hover>.dropdown,
 .dropdown li:hover>.sub-dropdown {
   display: block;
@@ -135,20 +125,17 @@ nav ul li:hover>.dropdown,
 /* 모달 스타일 */
 .modal {
   display: none;
-  /* 기본적으로 숨김 */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* 배경 어둡게 */
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* 모달 창 내용 */
 .modal-content {
   background-color: #fff;
   padding: 2em;
@@ -159,7 +146,6 @@ nav ul li:hover>.dropdown,
   position: relative;
 }
 
-/* 닫기 버튼 */
 .close {
   position: absolute;
   top: 10px;
@@ -168,7 +154,6 @@ nav ul li:hover>.dropdown,
   cursor: pointer;
 }
 
-/* 폼 필드 스타일 */
 .modal-content form {
   display: flex;
   flex-direction: column;
@@ -189,53 +174,103 @@ nav ul li:hover>.dropdown,
   border-radius: 4px;
   cursor: pointer;
 }
-/* 공통 스타일 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
 /* 컨테이너 스타일 */
 .worship-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2em auto;
-    width: 90%;
-    max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em auto;
+  width: 90%;
+  max-width: 1200px;
 }
 
-/* 제목 스타일 */
 .worship-container h2 {
-    margin-bottom: 1em;
-    font-size: 2em;
+  margin-bottom: 1em;
+  font-size: 2em;
+  color: #333;
+  text-align: center;
 }
 
-/* 예배 블록 스타일 */
 .worship-blocks {
-    display: flex;
-    justify-content: space-between;
-    gap: 2em;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  width: 100%;
 }
 
 .worship-block {
-    flex: 1;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.worship-block:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .worship-block h3 {
-    margin-bottom: 1em;
-    font-size: 1.5em;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  color: #007bff; /* 포인트 색상 */
 }
 
 .worship-block p {
-    margin-bottom: 0.5em;
-    color: #555;
-    line-height: 1.5;
+  margin-bottom: 0.5em;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .worship-blocks {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+/* 지난 예배 소개 섹션 */
+.past-worship-container {
+  margin: 3em auto;
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.past-worship-container h2 {
+  margin-bottom: 1em;
+  font-size: 2em;
+  color: #333;
+}
+
+.youtube-videos {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.video-item {
+  flex: 1 1 calc(45% - 2em); /* 반응형 카드 크기 */
+  max-width: 500px;
+  text-align: center;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-item p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #555;
 }
