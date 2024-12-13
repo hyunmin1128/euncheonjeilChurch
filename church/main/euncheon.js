@@ -102,3 +102,31 @@ document.getElementById('logoutButton').addEventListener('click', logout);
 
 // 5초마다 다음 슬라이드로 전환
 setInterval(showNextSlide, 5000);
+
+ // 불러올 URL과 각 섹션에 표시할 ID
+ const sections = [
+  { url: '../tidings/notification.html', elementId: 'notification-content' },
+  { url: '../tidings/weekly.html', elementId: 'weekly-content' },
+  { url: '../tidings/pray.html', elementId: 'pray-content' },
+  { url: '../tidings/gallery.html', elementId: 'gallery-content' }
+];
+
+// 각 섹션의 내용을 가져와서 해당 <p> 안에 삽입하는 함수
+function loadContent(url, elementId) {
+  fetch(url)
+      .then(response => response.text())
+      .then(data => {
+          // HTML 콘텐츠에서 첫 번째 200자 정도만 추출 (필요에 따라 조절)
+          const contentPreview = data.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
+          document.getElementById(elementId).innerText = contentPreview;
+      })
+      .catch(error => {
+          console.error('Error loading content:', error);
+          document.getElementById(elementId).innerText = '내용을 불러오지 못했습니다.';
+      });
+}
+
+// 모든 섹션의 콘텐츠를 불러옵니다.
+sections.forEach(section => {
+  loadContent(section.url, section.elementId);
+});
