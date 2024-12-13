@@ -202,53 +202,64 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-.divider {
-    border: none;
-    border-top: 1px solid #ddd; /* 가로줄 스타일 */
-    margin: 1em 0; /* 위아래 여백 */
-    width: 100%; /* 가로줄의 길이 */
-}
-
-.steps-container {
-    display: flex;
-    gap: 2em;
-    justify-content: space-around;
-    margin: 3em auto;
-    max-width: 1200px;
-}
-
-.step-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2em;
+  }
+  .team-header {
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    /* 카드가 같은 너비를 차지하도록 설정 */
-}
-
-.step-card h4 {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 0.5em;
-}
-
-.step-card h2 {
-    font-size: 1.5em;
-    color: #003366;
-    /* 진한 파란색 */
-    margin-bottom: 0.5em;
-}
-
-.step-card p {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 1em;
-}
-
-.step-card p:last-child {
-    margin-bottom: 0;
-    /* 마지막 설명의 하단 여백 제거 */
-}
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .team-header h1 {
+    font-size: 36px; /* 제목 크기 */
+    font-weight: bold;
+    color: #333; /* 텍스트 색상 */
+    margin: 0;
+  }
+  
+  
+  .team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* 그룹 간격을 키움 */
+    padding: 20px;
+  }
+  
+  .team-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
+    gap: 50px; /* 멤버 간격을 키움 */
+  }
+  
+  .team-member {
+    text-align: center;
+    width: 20%; /* 화면 크기에 따라 더 넓게 설정 */
+    min-width: 180px; /* 최소 크기를 더 키움 */
+    max-width: 250px; /* 최대 크기 */
+  }
+  
+  .team-member img {
+    width: 100%; /* 부모 크기에 맞게 조정 */
+    height: auto; /* 비율 유지 */
+    border-radius: 50%;
+    margin-bottom: 15px; /* 이미지와 이름 사이 간격 */
+  }
+  
+  /* 반응형 스타일링 */
+  @media screen and (max-width: 768px) { /* 태블릿 크기 */
+    .team-member {
+      width: 30%; /* 크기를 더 키움 */
+    }
+  }
+  
+  @media screen and (max-width: 480px) { /* 스마트폰 크기 */
+    .team-member {
+      width: 48%; /* 화면 절반 차지 */
+    }
+  
+    .team-group {
+      gap: 30px; /* 멤버 간격 축소 */
+    }
+  }
+  
