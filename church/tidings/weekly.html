@@ -47,27 +47,44 @@
         </nav>
         <button class="login-btn" onclick="openModal()">로그인</button>
     </header>
-    <div class="container">
-        <div class="left-panel">
-            <img id="bulletin-image" src="../image/weekly/241117_1.png" alt="주보 이미지" />
-            <img id="bulletin-image" src="../image/weekly/241117_2.png" alt="주보 이미지" />
+
+    <h2 class="sub-title">주보 게시판</h2>
+
+    <main class="main-layout">
+        <!-- 사진과 날짜 버튼을 담은 컨테이너 -->
+        <div class="content-area">
+            <!-- 사진 영역 -->
+            <div class="image-container">
+                <img id="photo1" src="../image/weekly/241208_1.png" alt="주보 사진 1" onclick="openModal(this)">
+                <img id="photo2" src="../image/weekly/241208_2.png" alt="주보 사진 2" onclick="openModal(this)">
+            </div>
+
+            <!-- 날짜 버튼 -->
+            <div class="date-buttons">
+                <button onclick="changePhotos('../image/weekly/241103_1.png', '../image/weekly/241103_2.png')">241103</button>
+                <button onclick="changePhotos('../image/weekly/241110_1.png', '../image/weekly/241110_2.png')">241110</button>
+                <button onclick="changePhotos('../image/weekly/241117_1.png', '../image/weekly/241117_2.png')">241117</button>
+                <button onclick="changePhotos('../image/weekly/241201_1.png', '../image/weekly/241201_2.png')">241201</button>
+            </div>
         </div>
-        <div class="right-panel">
-            <ul>
-                <li><a href="#" onclick="showBulletin(1)">날짜 1</a></li>
-                <li><a href="#" onclick="showBulletin(2)">날짜 2</a></li>
-                <li><a href="#" onclick="showBulletin(3)">날짜 3</a></li>
-                <li><a href="#" onclick="showBulletin(4)">날짜 4</a></li>
-            </ul>
+
+        <!-- 페이지네이션 버튼 -->
+        <div class="pagination">
+            <button onclick="showPage(1)">1페이지</button>
+            <button onclick="showPage(2)">2페이지</button>
         </div>
+    </main>
+    
+     <!-- 사진 확대를 위한 모달 -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <img id="modal-image" src="" alt="확대된 사진">
     </div>
+
     <footer>
         <p>&copy; 2024 Euncheon Is Church</p>
     </footer>
 
-    <script src="./weekly.js"></script>
-
-    <script src="../main/euncheon.js"></script>
-
+    <script src="weekly.js"></script>
+</body>
 
 </html>
