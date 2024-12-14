@@ -6,7 +6,7 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: 'Pretendard', Arial, sans-serif; /* 서체 변경 */
+  font-family: 'Pretendard', Arial, sans-serif;
 }
 
 html,
@@ -15,15 +15,13 @@ body {
   margin: 0;
 }
 
-/* body를 flex 컨테이너로 설정 */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f9f9f9, #ffffff); /* 부드러운 배경 그라데이션 */
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
 }
 
-/* main에 flex-grow 설정 */
 main {
   display: flex;
   flex-direction: column;
@@ -35,7 +33,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 1.5em;
   background-color: #f5f5f5;
   position: relative;
 }
@@ -62,18 +60,25 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #333;
+  font-weight: bold;
+  font-size: 1.1em;
   padding: 0.5em 1em;
+  transition: color 0.3s;
 }
 
-/* 드롭다운 메뉴 스타일 */
+nav ul li a:hover {
+  color: #007bff;
+}
+
 .dropdown,
 .sub-dropdown {
   display: none;
   position: absolute;
   left: 0;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  border-radius: 6px;
 }
 
 .dropdown {
@@ -81,45 +86,79 @@ nav ul li a {
   min-width: 150px;
 }
 
-.dropdown li {
-  position: relative;
-}
-
-.sub-dropdown {
-  top: 0;
-  left: 100%;
-  min-width: 150px;
-  margin-top: -10px;
-}
-
-.dropdown li a,
-.sub-dropdown li a {
-  padding: 0.5em 1em;
+.dropdown li a {
+  padding: 0.8em 1em;
   display: block;
   color: #333;
-  text-decoration: none;
 }
 
-.dropdown li a:hover,
-.sub-dropdown li a:hover {
+.dropdown li a:hover {
   background-color: #f0f0f0;
 }
 
-nav ul li:hover>.dropdown,
-.dropdown li:hover>.sub-dropdown {
+nav ul li:hover > .dropdown {
   display: block;
 }
 
-/* 로그인 버튼 스타일 */
-.login-btn {
+.header-right {
   position: absolute;
   right: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.login-btn {
   padding: 0.5em 1em;
-  background-color: #333;
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1em 1.5em;
+  }
+
+  header .logo img {
+    width: 120px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .menu-icon.active + nav ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul li a {
+    padding: 1em;
+    text-align: center;
+    font-size: 1em;
+  }
 }
 
 /* 모달 스타일 */
@@ -142,8 +181,6 @@ nav ul li:hover>.dropdown,
   border-radius: 8px;
   max-width: 400px;
   width: 90%;
-  text-align: center;
-  position: relative;
 }
 
 .close {
@@ -175,7 +212,7 @@ nav ul li:hover>.dropdown,
   cursor: pointer;
 }
 
-/* 컨테이너 스타일 */
+/* 예배 컨테이너 스타일 */
 .worship-container {
   display: flex;
   flex-direction: column;
@@ -183,13 +220,6 @@ nav ul li:hover>.dropdown,
   margin: 1em auto;
   width: 90%;
   max-width: 1200px;
-}
-
-.worship-container h2 {
-  margin-bottom: 1em;
-  font-size: 2em;
-  color: #333;
-  text-align: center;
 }
 
 .worship-blocks {
@@ -205,47 +235,32 @@ nav ul li:hover>.dropdown,
   border-radius: 10px;
   padding: 1.5em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
   background-color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.worship-block:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .worship-block h3 {
   margin-bottom: 1em;
   font-size: 1.5em;
-  color: #007bff; /* 포인트 색상 */
+  color: #007bff;
 }
 
 .worship-block p {
-  margin-bottom: 0.5em;
   color: #555;
   line-height: 1.5;
 }
 
-/* 반응형 스타일 */
 @media (max-width: 768px) {
   .worship-blocks {
     flex-direction: column;
-    gap: 1em;
   }
 }
-/* 지난 예배 소개 섹션 */
+
+/* 지난 예배 소개 스타일 */
 .past-worship-container {
   margin: 3em auto;
   text-align: center;
   width: 90%;
   max-width: 1200px;
-}
-
-.past-worship-container h2 {
-  margin-bottom: 1em;
-  font-size: 2em;
-  color: #333;
 }
 
 .youtube-videos {
@@ -256,9 +271,8 @@ nav ul li:hover>.dropdown,
 }
 
 .video-item {
-  flex: 1 1 calc(45% - 2em); /* 반응형 카드 크기 */
+  flex: 1 1 calc(45% - 2em);
   max-width: 500px;
-  text-align: center;
 }
 
 .video-item iframe {
@@ -266,7 +280,6 @@ nav ul li:hover>.dropdown,
   height: 280px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .video-item p {

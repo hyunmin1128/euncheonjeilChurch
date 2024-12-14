@@ -33,9 +33,9 @@ main {
 header {
   display: flex;
   justify-content: center;
-  /* 모든 요소를 수평으로 가운데 정렬 */
+  /* 가운데 정렬 */
   align-items: center;
-  padding: 1em;
+  padding: 1.5em;
   background-color: #f5f5f5;
   position: relative;
 }
@@ -47,7 +47,7 @@ header .logo {
 }
 
 header .logo img {
-  width: 150px;
+  width: 200px;
   height: auto;
 }
 
@@ -63,8 +63,28 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
+  font-weight: bold;
+  font-size: 150%;
   color: #333;
-  padding: 0.5em 1em;
+  padding: 1em 2em;
+}
+
+/* 일반 드롭다운 메뉴 옆에 화살표 추가 */
+nav ul li > a::after {
+  content: "";
+  border: solid #333;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  transform: rotate(45deg); /* 화살표 모양을 만들기 위한 회전 */
+}
+
+/* 드롭다운 활성화 시 화살표 제거 */
+nav ul li:hover > a::after {
+  content: none;
 }
 
 /* 드롭다운 메뉴 스타일 */
@@ -84,20 +104,7 @@ nav ul li a {
   top: 100%;
   /* 상단 메뉴 바로 아래에 나타나도록 설정 */
   min-width: 150px;
-}
-
-.dropdown li {
-  position: relative;
-  /* 하위 드롭다운을 위한 상대 위치 */
-}
-
-/* 서브 드롭다운 메뉴 스타일 */
-.sub-dropdown {
-  top: 0;
-  left: 100%;
-  /* 오른쪽에 나타나도록 설정 */
-  min-width: 150px;
-  margin-top: -10px;
+  white-space: nowrap; 
 }
 
 /* 드롭다운 항목 */
@@ -115,106 +122,21 @@ nav ul li a {
 }
 
 /* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
-nav ul li:hover>.dropdown,
-.dropdown li:hover>.sub-dropdown {
+nav ul li:hover > .dropdown,
+.dropdown li:hover > .sub-dropdown {
   display: block;
 }
 
 /* 로그인 버튼 스타일 */
-.login-btn {
+.header-right {
   position: absolute;
   right: 1em;
-  padding: 0.5em 1em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* 모달 스타일 */
-.modal {
-  display: none;
-  /* 기본적으로 숨김 */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* 배경 어둡게 */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* 모달 창 내용 */
-.modal-content {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-
-/* 닫기 버튼 */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-
-/* 폼 필드 스타일 */
-.modal-content form {
+  top: 50%;
+  transform: translateY(-50%);
+  /* 헤더 오른쪽 끝에 위치하고 수직 중앙 정렬 */
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 1em;
-}
-
-.modal-content form input {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.modal-content form button {
-  padding: 0.5em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* 슬라이더 스타일 */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 55vh;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  transition: left 1s ease;
-}
-
-.slide.active {
-  left: 0;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* 섹션 스타일 */
@@ -282,12 +204,12 @@ footer {
 /* 교회 소개 영역 */
 .churchIntroduce-container {
   position: relative;
-  height: 10vh; /* 높이를 줄임 (예: 50% 뷰포트) */
+  height: 10vh; 
 }
 
 .h2-centered {
   position: absolute;
-  top: 50%; /* 중앙 위치를 약간 위로 이동 */
+  top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2.5em;
@@ -298,13 +220,12 @@ footer {
 
 /* 메인 콘텐츠 스타일 */
 .main-content {
-  padding: 0; /* 기존 2em에서 1em으로 줄여 위아래 공간 축소 */
-  margin-top: -5em; /* 음수 마진을 추가하여 위로 올림 */
-  background-color: #ffffff; /* 연한 회색 배경 */
+  padding: 0; 
+  margin-top: -5em; 
+  background-color: #ffffff; 
   display: flex;
   justify-content: center;
 }
-
 
 .content-container {
   display: flex;
@@ -319,17 +240,17 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* 부모 컨테이너가 전체 너비를 사용하도록 설정 */
-  height: 100%; /* 부모 컨테이너의 높이를 100%로 설정 */
+  width: 100%; 
+  height: 100%; 
 }
 
 .church-photo {
   width: 100%;
-  max-width: none; /* 최대 너비 제한 해제 */
-  height: auto; /* 비율 유지 */
-  max-height: 100vh; /* 최대 높이를 뷰포트의 100%로 설정 */
+  max-width: none; 
+  height: auto; 
+  max-height: 100vh; 
   border-radius: 10px;
-  object-fit: cover; /* 사진의 비율을 유지하며 전체를 채움 */
+  object-fit: cover; 
 }
 
 /* 정보 섹션 */
@@ -353,7 +274,7 @@ footer {
 }
 
 .upper-info p {
-  color: #6c757d; /* 회색 텍스트 */
+  color: #6c757d; 
   margin-bottom: 1em;
 }
 
@@ -370,7 +291,7 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2em;
   text-align: center;
-  flex: 1; /* 각 카드가 동일한 너비를 차지 */
+  flex: 1; 
   transition: transform 0.3s;
 }
 
@@ -381,7 +302,7 @@ footer {
 .icon-circle {
   width: 60px;
   height: 60px;
-  background-color: #42c71a; /* 예시 색상 */
+  background-color: #42c71a; 
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -400,6 +321,6 @@ footer {
 }
 
 .card p {
-  color: #6c757d; /* 회색 텍스트 */
+  color: #6c757d; 
   line-height: 1.5;
 }
