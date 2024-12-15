@@ -1,60 +1,58 @@
-/* 기본 스타일 */
-body,
-ul,
-li,
-p {
+/* ========== 공통 스타일 ========== */
+:root {
+  --primary-color: #333;
+  --secondary-color: #f5f5f5;
+  --border-radius: 4px;
+  --font-family: Arial, sans-serif;
+}
+
+body, ul, li, p {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
 }
 
-html,
-body {
+html, body {
   height: 100%;
-  margin: 0;
 }
 
-/* body를 flex 컨테이너로 설정 */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* main에 flex-grow 설정 */
 main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
+/* ========== 헤더 스타일 ========== */
 /* 헤더 스타일 */
 header {
   display: flex;
-  justify-content: center;
-  /* 모든 요소를 수평으로 가운데 정렬 */
+  justify-content: center; /* 가운데 정렬 */
   align-items: center;
-  padding: 1em;
+  padding: 1.5em;
   background-color: #f5f5f5;
   position: relative;
 }
 
 header .logo {
   position: absolute;
-  left: 1em;
-  /* 로고를 왼쪽에 고정 */
+  left: 1em; /* 로고를 왼쪽에 고정 */
 }
 
 header .logo img {
-  width: 150px;
+  width: 200px;
   height: auto;
 }
 
 nav ul {
   display: flex;
-  gap: 2em;
-  /* 메뉴 항목 간격 설정 */
+  gap: 2em; /* 메뉴 항목 간격 설정 */
 }
 
 nav ul li {
@@ -63,15 +61,34 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
+  font-weight: bold;
+  font-size: 150%;
   color: #333;
-  padding: 0.5em 1em;
+  padding: 1em 2em;
+}
+
+/* 일반 드롭다운 메뉴 옆에 화살표 추가 */
+nav ul li > a::after {
+  content: "";
+  border: solid #333;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  transform: rotate(45deg); /* 화살표 모양을 만들기 위한 회전 */
+}
+
+/* 드롭다운 활성화 시 화살표 제거 */
+nav ul li:hover > a::after {
+  content: none;
 }
 
 /* 드롭다운 메뉴 스타일 */
 .dropdown,
 .sub-dropdown {
-  display: none;
-  /* 기본적으로 숨김 */
+  display: none; /* 기본적으로 숨김 */
   position: absolute;
   left: 0;
   background-color: #fff;
@@ -81,23 +98,9 @@ nav ul li a {
 
 /* 드롭다운 메뉴 스타일 */
 .dropdown {
-  top: 100%;
-  /* 상단 메뉴 바로 아래에 나타나도록 설정 */
+  top: 100%; /* 상단 메뉴 바로 아래에 나타나도록 설정 */
   min-width: 150px;
-}
-
-.dropdown li {
-  position: relative;
-  /* 하위 드롭다운을 위한 상대 위치 */
-}
-
-/* 서브 드롭다운 메뉴 스타일 */
-.sub-dropdown {
-  top: 0;
-  left: 100%;
-  /* 오른쪽에 나타나도록 설정 */
-  min-width: 150px;
-  margin-top: -10px;
+  white-space: nowrap;
 }
 
 /* 드롭다운 항목 */
@@ -115,150 +118,23 @@ nav ul li a {
 }
 
 /* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
-nav ul li:hover>.dropdown,
-.dropdown li:hover>.sub-dropdown {
+nav ul li:hover > .dropdown,
+.dropdown li:hover > .sub-dropdown {
   display: block;
 }
 
 /* 로그인 버튼 스타일 */
-.login-btn {
+.header-right {
   position: absolute;
   right: 1em;
-  padding: 0.5em 1em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* 모달 스타일 */
-.modal {
-  display: none;
-  /* 기본적으로 숨김 */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* 배경 어둡게 */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* 모달 창 내용 */
-.modal-content {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-
-/* 닫기 버튼 */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-
-/* 폼 필드 스타일 */
-.modal-content form {
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 1em;
 }
 
-.modal-content form input {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.modal-content form button {
-  padding: 0.5em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* 섹션 스타일 */
-.sections {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  /* 가로 정렬 */
-  gap: 1em;
-  /* 섹션 간 간격 */
-  padding: 1em;
-  overflow-x: auto;
-  /* 가로 스크롤 허용 (화면보다 섹션이 많을 경우) */
-}
-
-/* 개별 섹션 스타일 */
-.sections section {
-  flex: 1;
-  /* 모든 섹션이 동일한 너비를 차지하도록 설정 */
-  min-width: 200px;
-  /* 최소 너비를 설정하여 반응형 지원 */
-  background-color: #f0f0f0;
-  padding: 1em;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* 제목과 버튼을 한 줄에 배치 */
-.section-header {
-  display: flex;
-  align-items: center;
-  /* 세로 가운데 정렬 */
-  gap: 0.5em;
-  /* 제목과 버튼 사이의 간격 */
-}
-
-.sections h2 {
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.3em 0.6em;
-  /* 패딩 조정 */
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.9em;
-  /* 버튼 크기 조정 */
-  margin-top: 0;
-  /* 상단 여백 제거 */
-}
-
-/* 푸터 스타일 */
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #f5f5f5;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
+/* ========== 갤러리 스타일 ========== */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -295,20 +171,146 @@ body {
   transform: scale(1.05);
 }
 
+/* ========== 모달 스타일 ========== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-container {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 가운데 정렬 */
+  width: 90%;
+  max-width: 800px; /* 최대 너비 설정 */
+}
+
+.modal-content {
+  width: 100%;
+  max-height: 70vh; /* 화면 높이의 70%로 제한 */
+  object-fit: contain; /* 이미지 비율 유지 */
+  border-radius: 8px;
+  margin-bottom: 15px; /* 이미지와 설명 사이 여백 */
+}
 
 .close {
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 15px;
+  right: 35px;
   color: #fff;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.caption {
+.close:hover {
+  color: #ff0000;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
   color: #fff;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+
+.caption {
+  width: 100%;
   text-align: center;
-  margin-top: 10px;
   font-size: 1.2em;
+  color: #333;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== 폼 스타일 ========== */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.modal-content form input {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+}
+
+.modal-content form button {
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/* ========== 섹션 스타일 ========== */
+.sections {
+  flex-grow: 1;
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.sections section {
+  flex: 1;
+  min-width: 200px;
+  background-color: #f0f0f0;
+  padding: 1em;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* ========== 반응형 디자인 ========== */
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 0 1 calc(50% - 40px);
+  }
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    flex: 0 1 100%;
+  }
+  .modal-content {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/* ========== 애니메이션 ========== */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
 }

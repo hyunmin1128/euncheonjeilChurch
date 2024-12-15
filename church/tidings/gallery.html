@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>은천제일교회</title>
-    <link rel="stylesheet" href="../main/euncheon.css">
     <link rel="stylesheet" href="./gallery.css">
 </head>
 
@@ -102,9 +101,15 @@
         </main>
         <div id="modal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modal-img" class="modal-content">
-            <p id="modal-caption" class="caption"></p>
+            <span class="arrow arrow-left" onclick="changeImage(-1)">&#9664;</span>
+            <div class="modal-content-container">
+                <img id="modal-img" class="modal-content">
+                <p id="modal-caption" class="caption"></p>
+            </div>
+            <span class="arrow arrow-right" onclick="changeImage(1)">&#9654;</span>
         </div>
+        
+        
         <script src="./gallery.js"></script>
     </body>
 
