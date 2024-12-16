@@ -197,60 +197,70 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.team-header {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
+/* 전체 헤더 */
 .team-header h1 {
-    font-size: 36px;
+    text-align: center;
+  }
+  
+  .team-container {
+    width: 100%;
+  }
+  
+  .team-group {
+    margin-bottom: 40px;
+  }
+  
+  .team-title {
+    font-size: 24px;
     font-weight: bold;
-    color: #333;
-    margin: 0;
-}
-
-.team-container {
+    margin-bottom: 20px;
+    text-align: center; /* 제목 가운데 정렬 */
+  }
+  
+  .team-members {
+    display: flex; /* 팀 멤버들을 가로로 나란히 정렬 */
+    justify-content: center; /* 팀 멤버들을 가운데 정렬 */
+    gap: 20px; /* 멤버 사이의 간격 */
+    flex-wrap: wrap; /* 화면이 작아지면 다음 줄로 넘어가게 함 */
+  }
+  
+  .team-member {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 20px;
-}
-
-.team-group {
+    align-items: center; /* 이미지와 텍스트를 가운데 정렬 */
+    text-align: center; /* 텍스트 정렬 */
+    margin-bottom: 20px;
+    width: 150px; /* 멤버당 고정된 너비 */
+  }
+  
+  .image-container {
+    width: 120px; 
+    height: 120px;
+    background-color: #ffffff; /* 흰색 배경 */
+    border-radius: 50%; /* 원형으로 만듦 */
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-}
-
-.team-member {
-    text-align: center;
-    width: 20%;
-    min-width: 180px;
-    max-width: 250px;
-}
-
-.team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.team-member h3 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-.team-member p {
-    font-size: 1em;
-    color: #666;
-}
-
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+  }
+  
+  .team-member img {
+    width: 120px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%; /* 이미지도 원형으로 */
+  }
+  
+  .team-member h3 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .team-member p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
 /* 반응형 스타일링 */
 @media screen and (max-width: 768px) {
     .team-member {
