@@ -43,23 +43,24 @@
                 </li>
             </ul>
         </nav>
-        <button class="login-btn" onclick="openModal()">로그인</button>
-    </header>
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>로그인</h2>
-            <form>
-                <label for="username">아이디:</label>
-                <input type="text" id="username" name="username" required>
+        <div id="loginStatus">로그인하지 않았습니다.</div>
+        <button id="signupButton" onclick="openModal()">회원가입</button>
+        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
 
-                <label for="password">비밀번호:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">로그인</button>
-            </form>
+        <div id="signupModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <label for="usernameInput">닉네임:</label>
+                <input type="text" id="usernameInput">
+                <label for="userIdInput">ID:</label>
+                <input type="text" id="userIdInput">
+                <label for="passwordInput">PW:</label>
+                <input type="password" id="passwordInput">
+                <button onclick="signup()">회원가입</button>
+                <button onclick="closeModal()">닫기</button>
+            </div>
         </div>
-    </div>
+    </header>
+    
 
     <div class="pastorIntroduce-container">
         <h2 class="h2-centered">담임목사 소개</h2>
@@ -91,7 +92,7 @@
     </footer>
 
     <script src="./pastorIntroduce.js"> </script>
-    <script src="../main/euncheon.js"></script>
+    <script src="../js/common.js"></script>
 
 
 </body>
