@@ -1,4 +1,4 @@
-/* 기본 스타일 */
+/* ========== 공통 스타일 ========== */
 body,
 ul,
 li,
@@ -15,25 +15,22 @@ body {
   margin: 0;
 }
 
-/* body를 flex 컨테이너로 설정 */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* main에 flex-grow 설정 */
 main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-/* 헤더 스타일 */
+/* ========== 헤더 스타일 ========== */
 header {
   display: flex;
   justify-content: center;
-  /* 모든 요소를 수평으로 가운데 정렬 */
   align-items: center;
   padding: 1em;
   background-color: #f5f5f5;
@@ -43,7 +40,6 @@ header {
 header .logo {
   position: absolute;
   left: 1em;
-  /* 로고를 왼쪽에 고정 */
 }
 
 header .logo img {
@@ -54,7 +50,6 @@ header .logo img {
 nav ul {
   display: flex;
   gap: 2em;
-  /* 메뉴 항목 간격 설정 */
 }
 
 nav ul li {
@@ -63,50 +58,50 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5em; /* 폰트 사이즈 키움 */
   color: #333;
   padding: 0.5em 1em;
+  transition: color 0.3s ease;
 }
 
+nav ul li a:hover {
+  color: #007BFF;
+}
+
+/* 드롭다운 스타일 */
 /* 드롭다운 메뉴 스타일 */
 .dropdown,
 .sub-dropdown {
   display: none;
-  /* 기본적으로 숨김 */
   position: absolute;
   left: 0;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  min-width: 200px; /* 최소 너비 설정 */
+  white-space: nowrap; /* 줄바꿈 방지 */
 }
 
-/* 드롭다운 메뉴 스타일 */
 .dropdown {
   top: 100%;
-  /* 상단 메뉴 바로 아래에 나타나도록 설정 */
   min-width: 150px;
 }
 
-.dropdown li {
-  position: relative;
-  /* 하위 드롭다운을 위한 상대 위치 */
-}
-
-/* 서브 드롭다운 메뉴 스타일 */
 .sub-dropdown {
   top: 0;
   left: 100%;
-  /* 오른쪽에 나타나도록 설정 */
   min-width: 150px;
-  margin-top: -10px;
 }
 
-/* 드롭다운 항목 */
 .dropdown li a,
 .sub-dropdown li a {
   padding: 0.5em 1em;
   display: block;
   color: #333;
   text-decoration: none;
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+  text-overflow: ellipsis; /* 넘치는 텍스트를 '...' 처리 */
 }
 
 .dropdown li a:hover,
@@ -114,24 +109,34 @@ nav ul li a {
   background-color: #f0f0f0;
 }
 
-/* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
-nav ul li:hover>.dropdown,
-.dropdown li:hover>.sub-dropdown {
+nav ul li:hover > .dropdown,
+.dropdown li:hover > .sub-dropdown {
   display: block;
 }
 
-/* 로그인 버튼 스타일 */
-.login-btn {
+.header-right {
   position: absolute;
   right: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.login-btn {
   padding: 0.5em 1em;
   background-color: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-/* 고정글 섹션 스타일 */
+
+.login-btn:hover {
+  background-color: #007BFF;
+}
+
+/* ========== 고정글 섹션 스타일 ========== */
 #fixed-posts {
   margin-top: 10px;
   padding: 10px;
@@ -151,17 +156,17 @@ nav ul li:hover>.dropdown,
   text-decoration: underline;
 }
 
-/* 모달 스타일 */
+/* ========== 모달 스타일 ========== */
 .modal {
-  display: none; /* 기본적으로 숨김 */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
-  justify-content: center; /* 가운데 정렬 */
-  align-items: center; /* 가운데 정렬 */
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
@@ -182,17 +187,7 @@ nav ul li:hover>.dropdown,
   cursor: pointer;
 }
 
-
-/* 닫기 버튼 */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-
-/* 폼 필드 스타일 */
+/* 폼 스타일 */
 .modal-content form {
   display: flex;
   flex-direction: column;
@@ -212,40 +207,36 @@ nav ul li:hover>.dropdown,
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* 섹션 스타일 */
+.modal-content form button:hover {
+  background-color: #007BFF;
+}
+
+/* ========== 섹션 스타일 ========== */
 .sections {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
-  /* 가로 정렬 */
   gap: 1em;
-  /* 섹션 간 간격 */
   padding: 1em;
   overflow-x: auto;
-  /* 가로 스크롤 허용 (화면보다 섹션이 많을 경우) */
 }
 
-/* 개별 섹션 스타일 */
 .sections section {
   flex: 1;
-  /* 모든 섹션이 동일한 너비를 차지하도록 설정 */
   min-width: 200px;
-  /* 최소 너비를 설정하여 반응형 지원 */
   background-color: #f0f0f0;
   padding: 1em;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
-/* 제목과 버튼을 한 줄에 배치 */
 .section-header {
   display: flex;
   align-items: center;
-  /* 세로 가운데 정렬 */
   gap: 0.5em;
-  /* 제목과 버튼 사이의 간격 */
 }
 
 .sections h2 {
@@ -256,68 +247,44 @@ nav ul li:hover>.dropdown,
 .button {
   display: inline-block;
   padding: 0.3em 0.6em;
-  /* 패딩 조정 */
   background-color: #333;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
   font-size: 0.9em;
-  /* 버튼 크기 조정 */
-  margin-top: 0;
-  /* 상단 여백 제거 */
 }
 
+.button:hover {
+  background-color: #007BFF;
+}
 
-/* 푸터 스타일 */
+/* ========== 푸터 스타일 ========== */
 footer {
   text-align: center;
   padding: 1em;
   background-color: #f5f5f5;
+  color: #777;
+  font-size: 0.9em;
 }
+
+/* ========== 콘텐츠 및 기도 섹션 ========== */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f9f9f9;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
 
-.pray-detail-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
 main {
   display: flex;
-  flex-direction: column; /* 세로 배치 */
-  gap: 20px; /* 섹션 간 간격 */
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
   background-color: #f9f9f9;
 }
 
-/* 기도 요청 섹션 스타일 */
-.pray-section {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 고정글 섹션 스타일 */
-.fixed-section {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* 기도 요청 리스트 섹션 */
+.pray-section,
+.fixed-section,
 .pray-list-section {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -326,8 +293,8 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 공통 스타일 */
-#pray-list, #fixed-posts {
+#pray-list,
+#fixed-posts {
   margin-top: 10px;
   padding: 10px;
   background-color: #f9f9f9;
@@ -335,28 +302,7 @@ main {
   border-radius: 5px;
 }
 
-#pray-list p, #fixed-posts p {
-  font-size: 1em;
-  color: #333;
-}
-
-#pray-detail {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-#pray-detail h2 {
-  margin-top: 0;
-}
-
 .date {
   color: #777;
   font-size: 0.9em;
-  margin-bottom: 20px;
-}
-
-#pray-content {
-  white-space: pre-wrap;
 }

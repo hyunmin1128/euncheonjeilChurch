@@ -1,49 +1,17 @@
-/* 기본 스타일 */
-body,
-ul,
-li,
-p {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: Arial, sans-serif;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
-
-/* body를 flex 컨테이너로 설정 */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* main에 flex-grow 설정 */
-main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
 /* 헤더 스타일 */
 header {
     display: flex;
-    justify-content: center;
-    /* 모든 요소를 수평으로 가운데 정렬 */
+    justify-content: center; /* 메뉴를 가운데 정렬 */
     align-items: center;
     padding: 1em;
     background-color: #f5f5f5;
     position: relative;
 }
 
+/* 로고 스타일 */
 header .logo {
     position: absolute;
-    left: 1em;
-    /* 로고를 왼쪽에 고정 */
+    left: 1em; /* 로고를 왼쪽에 고정 */
 }
 
 header .logo img {
@@ -51,10 +19,12 @@ header .logo img {
     height: auto;
 }
 
+/* 네비게이션 메뉴 스타일 */
 nav ul {
     display: flex;
-    gap: 2em;
-    /* 메뉴 항목 간격 설정 */
+    gap: 2em; /* 메뉴 항목 간격 설정 */
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -64,19 +34,27 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #333;
+    font-size: 1.2em; /* 폰트 크기 키움 */
+    font-weight: bold;
     padding: 0.5em 1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007BFF;
 }
 
 /* 드롭다운 메뉴 스타일 */
 .dropdown,
 .sub-dropdown {
     display: none;
-    /* 기본적으로 숨김 */
     position: absolute;
     left: 0;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    min-width: 200px; /* 드롭다운 메뉴의 최소 너비 설정 */
+    white-space: nowrap; /* 줄바꿈 방지 */
 }
 
 /* 드롭다운 메뉴 스타일 */
@@ -103,8 +81,8 @@ nav ul li a {
 /* 드롭다운 항목 */
 .dropdown li a,
 .sub-dropdown li a {
-    padding: 0.5em 1em;
     display: block;
+    padding: 0.5em 1em;
     color: #333;
     text-decoration: none;
 }
@@ -123,15 +101,19 @@ nav ul li:hover>.dropdown,
 /* 로그인 버튼 스타일 */
 .login-btn {
     position: absolute;
-    right: 1em;
+    right: 1em; /* 로그인 버튼을 오른쪽에 고정 */
     padding: 0.5em 1em;
     background-color: #333;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+.login-btn:hover {
+    background-color: #007BFF;
+}
 /* 모달 스타일 */
 .modal {
     display: none;
@@ -189,34 +171,6 @@ nav ul li:hover>.dropdown,
     border-radius: 4px;
     cursor: pointer;
 }
-
-/* 슬라이더 스타일 */
-.slider {
-    position: relative;
-    width: 100%;
-    height: 55vh;
-    overflow: hidden;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 100%;
-    height: 100%;
-    transition: left 1s ease;
-}
-
-.slide.active {
-    left: 0;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 /* 섹션 스타일 */
 .sections {
     flex-grow: 1;

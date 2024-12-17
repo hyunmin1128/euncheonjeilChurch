@@ -30,10 +30,9 @@ main {
 }
 
 /* ========== 헤더 스타일 ========== */
-/* 헤더 스타일 */
 header {
   display: flex;
-  justify-content: center; /* 가운데 정렬 */
+  justify-content: center; 
   align-items: center;
   padding: 1.5em;
   background-color: #f5f5f5;
@@ -42,7 +41,7 @@ header {
 
 header .logo {
   position: absolute;
-  left: 1em; /* 로고를 왼쪽에 고정 */
+  left: 1em;
 }
 
 header .logo img {
@@ -52,7 +51,7 @@ header .logo img {
 
 nav ul {
   display: flex;
-  gap: 2em; /* 메뉴 항목 간격 설정 */
+  gap: 2em; 
 }
 
 nav ul li {
@@ -67,7 +66,6 @@ nav ul li a {
   padding: 1em 2em;
 }
 
-/* 일반 드롭다운 메뉴 옆에 화살표 추가 */
 nav ul li > a::after {
   content: "";
   border: solid #333;
@@ -77,18 +75,16 @@ nav ul li > a::after {
   vertical-align: middle;
   width: 0;
   height: 0;
-  transform: rotate(45deg); /* 화살표 모양을 만들기 위한 회전 */
+  transform: rotate(45deg); 
 }
 
-/* 드롭다운 활성화 시 화살표 제거 */
 nav ul li:hover > a::after {
   content: none;
 }
 
-/* 드롭다운 메뉴 스타일 */
 .dropdown,
 .sub-dropdown {
-  display: none; /* 기본적으로 숨김 */
+  display: none; 
   position: absolute;
   left: 0;
   background-color: #fff;
@@ -96,14 +92,12 @@ nav ul li:hover > a::after {
   z-index: 1000;
 }
 
-/* 드롭다운 메뉴 스타일 */
 .dropdown {
-  top: 100%; /* 상단 메뉴 바로 아래에 나타나도록 설정 */
+  top: 100%; 
   min-width: 150px;
   white-space: nowrap;
 }
 
-/* 드롭다운 항목 */
 .dropdown li a,
 .sub-dropdown li a {
   padding: 0.5em 1em;
@@ -117,13 +111,11 @@ nav ul li:hover > a::after {
   background-color: #f0f0f0;
 }
 
-/* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
 nav ul li:hover > .dropdown,
 .dropdown li:hover > .sub-dropdown {
   display: block;
 }
 
-/* 로그인 버튼 스타일 */
 .header-right {
   position: absolute;
   right: 1em;
@@ -187,18 +179,18 @@ nav ul li:hover > .dropdown,
 
 .modal-content-container {
   display: flex;
-  flex-direction: column; /* 세로 정렬 */
-  align-items: center; /* 가운데 정렬 */
+  flex-direction: column; 
+  align-items: center; 
   width: 90%;
-  max-width: 800px; /* 최대 너비 설정 */
+  max-width: 800px; 
 }
 
 .modal-content {
   width: 100%;
-  max-height: 70vh; /* 화면 높이의 70%로 제한 */
-  object-fit: contain; /* 이미지 비율 유지 */
+  max-height: 70vh; 
+  object-fit: contain; 
   border-radius: 8px;
-  margin-bottom: 15px; /* 이미지와 설명 사이 여백 */
+  margin-bottom: 15px; 
 }
 
 .close {
@@ -231,7 +223,6 @@ nav ul li:hover > .dropdown,
 .arrow-right {
   right: 10px;
 }
-
 
 .caption {
   width: 100%;
