@@ -50,20 +50,20 @@
             <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
         </div>
 
-        <div id="signupModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <label for="usernameInput">닉네임:</label>
-                <input type="text" id="usernameInput">
-                <label for="userIdInput">ID:</label>
-                <input type="text" id="userIdInput">
-                <label for="passwordInput">PW:</label>
-                <input type="password" id="passwordInput">
-                <button onclick="signup()">회원가입</button>
-                <button onclick="closeModal()">닫기</button>
-            </div>
-        </div>
     </header>
 
+    <div id="signupModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <label for="usernameInput">닉네임:</label>
+            <input type="text" id="usernameInput">
+            <label for="userIdInput">ID:</label>
+            <input type="text" id="userIdInput">
+            <label for="passwordInput">PW:</label>
+            <input type="password" id="passwordInput">
+            <button onclick="signup()">회원가입</button>
+            <button onclick="closeModal()">닫기</button>
+        </div>
+    </div>
     <main>
         <!-- 슬라이더 -->
         <section class="slider">

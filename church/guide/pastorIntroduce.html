@@ -46,21 +46,25 @@
         <div id="loginStatus">로그인하지 않았습니다.</div>
         <button id="signupButton" onclick="openModal()">회원가입</button>
         <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
-
-        <div id="signupModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <label for="usernameInput">닉네임:</label>
-                <input type="text" id="usernameInput">
-                <label for="userIdInput">ID:</label>
-                <input type="text" id="userIdInput">
-                <label for="passwordInput">PW:</label>
-                <input type="password" id="passwordInput">
-                <button onclick="signup()">회원가입</button>
-                <button onclick="closeModal()">닫기</button>
-            </div>
-        </div>
     </header>
-    
+
+    <!-- 로그인 모달 -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>로그인</h2>
+      <label for="usernameInput">닉네임</label>
+      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
+      
+      <label for="userIdInput">ID</label>
+      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
+      
+      <label for="passwordInput">비밀번호</label>
+      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
+      
+      <button onclick="login()">로그인</button>
+      <button onclick="closeLoginModal()">닫기</button>
+    </div>
+  </div>
 
     <div class="pastorIntroduce-container">
         <h2 class="h2-centered">담임목사 소개</h2>
@@ -77,10 +81,10 @@
             <div class="greeting">
                 <h2>안녕하세요<br>오후석 목사입니다.</h2>
                 <p>지금 당신의 간절함은 무엇입니까?<br>
-                   그 간절함이 당신의 기도가 될 것입니다.<br>
-                   우리에게 간절함이 있다는 것은<br>
-                   그 일을 통해 하나님께서 당신을 만나고 싶다는 뜻이기도 합니다.<br>
-                   은천제일교회와 함께 하나님을 만나길 소망합니다.
+                    그 간절함이 당신의 기도가 될 것입니다.<br>
+                    우리에게 간절함이 있다는 것은<br>
+                    그 일을 통해 하나님께서 당신을 만나고 싶다는 뜻이기도 합니다.<br>
+                    은천제일교회와 함께 하나님을 만나길 소망합니다.
                 </p>
                 <h3>오후석 목사 배상</h3>
             </div>

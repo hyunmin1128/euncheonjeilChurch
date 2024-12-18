@@ -47,20 +47,25 @@
         <button id="signupButton" onclick="openModal()">회원가입</button>
         <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
 
-        <div id="signupModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <label for="usernameInput">닉네임:</label>
-                <input type="text" id="usernameInput">
-                <label for="userIdInput">ID:</label>
-                <input type="text" id="userIdInput">
-                <label for="passwordInput">PW:</label>
-                <input type="password" id="passwordInput">
-                <button onclick="signup()">회원가입</button>
-                <button onclick="closeModal()">닫기</button>
-            </div>
-        </div>
     </header>
 
+    <!-- 로그인 모달 -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>로그인</h2>
+      <label for="usernameInput">닉네임</label>
+      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
+      
+      <label for="userIdInput">ID</label>
+      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
+      
+      <label for="passwordInput">비밀번호</label>
+      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
+      
+      <button onclick="login()">로그인</button>
+      <button onclick="closeLoginModal()">닫기</button>
+    </div>
+  </div>
     <main>
         <!-- 기도 요청 섹션 -->
         <section class="pray-section">

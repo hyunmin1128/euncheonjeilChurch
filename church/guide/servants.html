@@ -44,23 +44,31 @@
         </li>
       </ul>
     </nav>
-    <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
-
-        <div id="signupModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <label for="usernameInput">닉네임:</label>
-                <input type="text" id="usernameInput">
-                <label for="userIdInput">ID:</label>
-                <input type="text" id="userIdInput">
-                <label for="passwordInput">PW:</label>
-                <input type="password" id="passwordInput">
-                <button onclick="signup()">회원가입</button>
-                <button onclick="closeModal()">닫기</button>
-            </div>
-        </div>
+    <div class="header-right">
+      <div id="loginStatus">로그인하지 않았습니다.</div>
+      <button id="loginButton" onclick="openLoginModal()">로그인</button>
+      <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+    </div>
   </header>
+
+  </html>
+<!-- 로그인 모달 -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h2>로그인</h2>
+    <label for="usernameInput">닉네임</label>
+    <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
+    
+    <label for="userIdInput">ID</label>
+    <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
+    
+    <label for="passwordInput">비밀번호</label>
+    <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
+    
+    <button onclick="login()">로그인</button>
+    <button onclick="closeLoginModal()">닫기</button>
+  </div>
+</div>
 
   <main>
     <div class="team-header">
@@ -109,7 +117,7 @@
           </div>
           <div class="team-member">
             <div class="image-container">
-              <img src="jeong_bokseong.jpg" >
+              <img src="jeong_bokseong.jpg">
             </div>
             <h3>정복성</h3>
             <p>은퇴장로</p>
@@ -200,7 +208,7 @@
         <div class="team-members">
           <div class="team-member">
             <div class="image-container">
-              <img src="cheon_chungnam.jpg" >
+              <img src="cheon_chungnam.jpg">
             </div>
             <h3>천충남</h3>
             <p>차량운행</p>
@@ -217,12 +225,10 @@
     </div>
   </main>
 
-
   <footer>
     <p>&copy; 2024 Euncheon Is Church</p>
   </footer>
 
-  <script src="../main/euncheon.js"></script>
   <script src="../js/common.js"></script>
 </body>
 
