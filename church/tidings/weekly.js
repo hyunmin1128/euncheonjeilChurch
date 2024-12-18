@@ -1,6 +1,5 @@
 // 페이지 전환
 function showPage(pageNumber) {
-  // 모든 사진 숨기기
   const photo1 = document.getElementById('photo1');
   const photo2 = document.getElementById('photo2');
 
@@ -26,13 +25,13 @@ function closeModal() {
   const modal = document.getElementById('image-modal');
   modal.classList.remove('active');
 }
+
 // 초기 페이지 설정
 window.onload = function () {
   showPage(1); // 페이지 로드 시 1페이지 사진 표시
 };
 
 function changePhotos(photo1Src, photo2Src) {
-  // 두 개의 이미지를 변경
   const photo1 = document.getElementById('photo1');
   const photo2 = document.getElementById('photo2');
 
