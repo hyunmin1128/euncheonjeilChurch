@@ -43,36 +43,45 @@
                 </li>
             </ul>
         </nav>
-        <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        <!-- 로그인/회원가입/로그아웃 버튼 -->
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="loginButton" onclick="openLoginModal()">로그인</button>
+            <button id="signupButton" onclick="openSignupModal()">회원가입</button>
+            <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+        </div>
 
     </header>
 
     <!-- 로그인 모달 -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>로그인</h2>
-      <label for="usernameInput">닉네임</label>
-      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-      
-      <label for="userIdInput">ID</label>
-      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-      
-      <label for="passwordInput">비밀번호</label>
-      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-      
-      <button onclick="login()">로그인</button>
-      <button onclick="closeLoginModal()">닫기</button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <input type="text" id="usernameInput" placeholder="닉네임">
+            <input type="text" id="userIdInput" placeholder="ID">
+            <input type="password" id="passwordInput" placeholder="비밀번호">
+            <button onclick="login()">로그인</button>
+            <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
     </div>
-  </div>
+
+    <!-- 회원가입 모달 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <input type="text" id="signupUsernameInput" placeholder="닉네임">
+            <input type="text" id="signupUserIdInput" placeholder="ID">
+            <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+            <button onclick="signup()">회원가입</button>
+            <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
+    </div>
+
     <main>
         <!-- 기도 요청 섹션 -->
         <section class="pray-section">
-            <header>
-                <h1>기도 요청 목록</h1>
-                <button onclick="location.href='prayWrite.html'">기도 작성하기</button>
-            </header>
+            <h1>중보 기도 요청 목록</h1>
+            <button class="pray-btn" onclick="location.href='prayWrite.html'">기도 요청 작성하기</button>
         </section>
 
         <!-- 고정글 섹션 -->
@@ -81,32 +90,35 @@
             <div id="fixed-posts">
                 <p>고정글이 없습니다. 새로운 고정글을 작성하세요!</p>
             </div>
-            <button onclick="openModal()">고정글 작성</button>
+            <button class="fixed-btn" onclick="openFixedModal()">고정글 작성</button>
         </section>
 
         <!-- 기도 요청 리스트 섹션 -->
         <section class="pray-list-section">
+            <h2>기도 요청</h2>
             <div id="pray-list">
                 <p>등록된 기도 요청이 없습니다.</p>
             </div>
         </section>
-
-        <!-- 고정글 작성/수정 모달 -->
-        <div id="fixed-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h3 id="modal-title">고정글 작성</h3>
-                <textarea id="fixed-input" rows="5" placeholder="고정글 내용을 입력하세요" style="width: 100%;"></textarea>
-                <button onclick="saveFixedPost()">저장</button>
-            </div>
-        </div>
-        </div>
     </main>
 
-    <script src="./pray.js"></script>
+    <!-- 고정글 작성/수정 모달 -->
+    <div id="fixed-modal" class="pray-modal">
+        <div class="pray-modal-content">
+             <span class="close" onclick="closeFixedModal()">&times;</span>
+            <h3 id="fixed-modal-title">고정글 작성</h3>
+            <textarea id="fixed-input" rows="5" placeholder="고정글 내용을 입력하세요"></textarea>
+            <button onclick="saveFixedPost()">저장</button>
+            <button class="close" onclick="closeFixedModal()">&times;</button>
+        </div>
+    </div>
+
+
     <script src="../js/common.js"></script>
+    <script src="./pray.js"></script>
+
     <footer>
-        <p>&copy; 2024 Euncheon Guide</p>
+        <p class="footer-text">은천제일교회</p>
     </footer>
 </body>
 

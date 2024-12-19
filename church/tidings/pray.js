@@ -1,11 +1,8 @@
-let editingPostId = null; // 수정 중인 고정글 ID
+let editingPrayId = null;
 
 // === 기도 요청 ===
-
-// 기도 요청 로드
 function loadPrayers() {
     const prayList = document.getElementById("pray-list");
-    prayList.innerHTML = ""; // 기존 내용 초기화
     const prayers = JSON.parse(localStorage.getItem("prayers") || "[]");
 
     if (prayers.length === 0) {
@@ -13,6 +10,7 @@ function loadPrayers() {
         return;
     }
 
+    prayList.innerHTML = "";
     prayers.forEach((prayer) => {
         const prayerItem = document.createElement("article");
         prayerItem.classList.add("pray-item");
@@ -26,21 +24,6 @@ function loadPrayers() {
     });
 }
 
-// 기도 요청 작성
-function addPrayer(title, date) {
-    const prayers = JSON.parse(localStorage.getItem("prayers") || "[]");
-    const newPrayer = {
-        id: Date.now(),
-        title: title,
-        date: date,
-    };
-
-    prayers.push(newPrayer);
-    localStorage.setItem("prayers", JSON.stringify(prayers));
-    loadPrayers();
-}
-
-// 기도 요청 삭제
 function deletePrayer(id) {
     let prayers = JSON.parse(localStorage.getItem("prayers") || "[]");
     prayers = prayers.filter((prayer) => prayer.id !== id);
@@ -49,42 +32,25 @@ function deletePrayer(id) {
 }
 
 // === 고정글 ===
-
-// 고정글 로드
 function loadFixedPosts() {
-    const fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
     const fixedPostsContainer = document.getElementById("fixed-posts");
-    fixedPostsContainer.innerHTML = ""; // 초기화
+    const fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
 
     if (fixedPosts.length === 0) {
         fixedPostsContainer.innerHTML = "<p>고정글이 없습니다. 새로운 고정글을 작성하세요!</p>";
         return;
     }
 
-    fixedPosts.forEach((post) => {
-        const postElement = document.createElement("div");
-        postElement.classList.add("fixed-post");
-
-        postElement.innerHTML = `
-            <p onclick="editFixedPost(${post.id})" style="cursor: pointer;">${post.title}</p>
-            <button onclick="deleteFixedPost(${post.id})" style="margin-left: 10px;">삭제</button>
-        `;
-
-        fixedPostsContainer.appendChild(postElement);
-    });
+    // 고정글 출력
+    fixedPostsContainer.innerHTML = fixedPosts.map(post =>
+        `<div>${post.content} 
+                <button onclick="deleteFixedPost(${post.id})">삭제</button></div>`
+    ).join('');
 }
 
-// 고정글 삭제
-function deleteFixedPost(postId) {
-    let fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
-    fixedPosts = fixedPosts.filter((post) => post.id !== postId);
-    localStorage.setItem("fixedPosts", JSON.stringify(fixedPosts));
-    loadFixedPosts();
-}
-
-// 고정글 저장
 function saveFixedPost() {
-    const content = document.getElementById("fixed-input").value.trim();
+    const fixedInputElement = document.getElementById("fixed-input");
+    const content = fixedInputElement.value.trim();
     if (!content) {
         alert("고정글 내용을 입력하세요!");
         return;
@@ -92,62 +58,37 @@ function saveFixedPost() {
 
     const fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
 
-    if (editingPostId !== null) {
-        const postIndex = fixedPosts.findIndex((post) => post.id === editingPostId);
-        if (postIndex > -1) {
-            fixedPosts[postIndex].title = content;
-        }
-        editingPostId = null;
-    } else {
-        const newPost = {
-            id: Date.now(),
-            title: content,
-        };
-        fixedPosts.push(newPost);
-    }
+    const newPost = {
+        id: Date.now(),
+        content: content // 🔥 undefined가 아닌 실제 값을 명확히 전달
+    };
 
+    fixedPosts.push(newPost);
     localStorage.setItem("fixedPosts", JSON.stringify(fixedPosts));
-    document.getElementById("fixed-input").value = "";
-    closeModal();
+
+    // 모달 닫기 및 입력 필드 초기화
+    closeFixedModal();
     loadFixedPosts();
 }
 
-// 고정글 수정
-function editFixedPost(postId) {
-    const fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
-    const post = fixedPosts.find((p) => p.id === postId);
-
-    if (!post) {
-        alert("고정글을 찾을 수 없습니다.");
-        return;
-    }
-
-    editingPostId = postId;
-    document.getElementById("modal-title").innerText = "고정글 수정";
-    document.getElementById("fixed-input").value = post.title;
-    openModal();
+function deleteFixedPost(id) {
+    let fixedPosts = JSON.parse(localStorage.getItem("fixedPosts") || "[]");
+            fixedPosts = fixedPosts.filter(post => post.id !== id);
+            localStorage.setItem("fixedPosts", JSON.stringify(fixedPosts));
+            loadFixedPosts();
 }
 
-// 모달 열기
-function openModal() {
-    const modal = document.getElementById("fixed-modal");
-    if (modal) {
-        modal.style.display = "flex";
-    }
+function openFixedModal() {
+    document.getElementById("fixed-modal").style.display = "flex";
 }
 
-
-function closeModal() {
-    const modal = document.getElementById("fixed-modal");
-    if (modal) {
-        modal.style.display = "none";
-        editingPostId = null;
-    }
+function closeFixedModal() {
+    document.getElementById("fixed-modal").style.display = "none";
+    document.getElementById("fixed-input").value = ''; // 입력 필드 초기화
 }
-
 
 // === 초기화 ===
 document.addEventListener("DOMContentLoaded", () => {
-    loadPrayers(); // 기도 요청 로드
-    loadFixedPosts(); // 고정글 로드
+    loadPrayers();
+    loadFixedPosts();
 });

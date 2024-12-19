@@ -44,66 +44,78 @@
                 </li>
             </ul>
         </nav>
-        <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
-
-        
+        <!-- 로그인/회원가입/로그아웃 버튼 -->
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="loginButton" onclick="openLoginModal()">로그인</button>
+            <button id="signupButton" onclick="openSignupModal()">회원가입</button>
+            <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+        </div>
     </header>
+
     <!-- 로그인 모달 -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>로그인</h2>
-      <label for="usernameInput">닉네임</label>
-      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-      
-      <label for="userIdInput">ID</label>
-      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-      
-      <label for="passwordInput">비밀번호</label>
-      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-      
-      <button onclick="login()">로그인</button>
-      <button onclick="closeLoginModal()">닫기</button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <input type="text" id="usernameInput" placeholder="닉네임">
+            <input type="text" id="userIdInput" placeholder="ID">
+            <input type="password" id="passwordInput" placeholder="비밀번호">
+            <button onclick="login()">로그인</button>
+            <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
     </div>
-  </div>
+
+    <!-- 회원가입 모달 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <input type="text" id="signupUsernameInput" placeholder="닉네임">
+            <input type="text" id="signupUserIdInput" placeholder="ID">
+            <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+            <button onclick="signup()">회원가입</button>
+            <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
+    </div>
+
     <body>
 
         <main>
             <div class="gallery">
-                <div class="gallery-item" onclick="openModal(0)">
+                <div class="gallery-item" onclick="openGalleryModal(0)">
                     <img src="../image/Gallery/gallery1.jpeg" alt="Image 1">
                     <p class="description">이미지 1 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(1)">
+                <div class="gallery-item" onclick="openGalleryModal(1)">
                     <img src="../image/Gallery/gallery2.jpeg" alt="Image 2">
                     <p class="description">이미지 2 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(2)">
+                <div class="gallery-item" onclick="openGalleryModal(2)">
                     <img src="../image/Gallery/gallery3.jpeg" alt="Image 3">
                     <p class="description">이미지 3 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(3)">
+                <div class="gallery-item" onclick="openGalleryModal(3)">
                     <img src="../image/Gallery/gallery4.jpeg" alt="Image 3">
                     <p class="description">이미지 4 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(4)">
+                <div class="gallery-item" onclick="openGalleryModal(4)">
                     <img src="../image/Gallery/gallery5.jpeg" alt="Image 3">
                     <p class="description">이미지 5 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(5)">
+                <div class="gallery-item" onclick="openGalleryModal(5)">
                     <img src="../image/Gallery/gallery6.jpeg" alt="Image 3">
                     <p class="description">이미지 6 설명</p>
                 </div>
-                <div class="gallery-item" onclick="openModal(6)">
+                <div class="gallery-item" onclick="openGalleryModal(6)">
                     <img src="../image/Gallery/gallery7.jpeg" alt="Image 3">
                     <p class="description">이미지 7 설명</p>
                 </div>
                 <!-- 추가적인 이미지 아이템을 이곳에 추가할 수 있습니다 -->
             </div>
         </main>
-        <div id="modal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
+
+        <!-- 갤러리 모달 -->
+        <div id="galleryModal" class="gallery-modal">
+            <span class="close" onclick="closeGalleryModal()">&times;</span>
             <span class="arrow arrow-left" onclick="changeImage(-1)">&#9664;</span>
             <div class="modal-content-container">
                 <img id="modal-img" class="modal-content">
@@ -111,14 +123,13 @@
             </div>
             <span class="arrow arrow-right" onclick="changeImage(1)">&#9654;</span>
         </div>
-        
-        
-        <script src="./gallery.js"></script>
+
         <script src="../js/common.js"></script>
+        <script src="./gallery.js"></script>
     </body>
 
     <footer>
-        <p>&copy; 2024 Euncheon Guide</p>
+        <p class="footer-text">은천제일교회</p>
     </footer>
 </body>
 

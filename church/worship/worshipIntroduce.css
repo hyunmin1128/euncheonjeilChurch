@@ -59,44 +59,55 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #333;
   font-weight: bold;
-  font-size: 1.1em;
-  padding: 0.5em 1em;
-  transition: color 0.3s;
+  font-size: 150%;
+  color: #333;
+  padding: 1em 2em;
 }
 
-nav ul li a:hover {
-  color: #007bff;
+nav ul li > a::after {
+  content: "";
+  border: solid #333;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  transform: rotate(45deg);
 }
 
-.dropdown,
-.sub-dropdown {
+nav ul li:hover > a::after {
+  content: none;
+}
+
+.dropdown, .sub-dropdown {
   display: none;
   position: absolute;
   left: 0;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  border-radius: 6px;
 }
 
 .dropdown {
   top: 100%;
   min-width: 150px;
+  white-space: nowrap; 
 }
 
-.dropdown li a {
-  padding: 0.8em 1em;
+.dropdown li a, .sub-dropdown li a {
+  padding: 0.5em 1em;
   display: block;
   color: #333;
+  text-decoration: none;
 }
 
-.dropdown li a:hover {
+.dropdown li a:hover, .sub-dropdown li a:hover {
   background-color: #f0f0f0;
 }
 
-nav ul li:hover > .dropdown {
+nav ul li:hover > .dropdown, .dropdown li:hover > .sub-dropdown {
   display: block;
 }
 
@@ -104,23 +115,39 @@ nav ul li:hover > .dropdown {
   position: absolute;
   right: 1em;
   display: flex;
-  align-items: center;
   gap: 1em;
 }
-
-.login-btn {
+/* 버튼 기본 스타일 */
+.header-right button {
   padding: 0.5em 1em;
-  background-color: #007bff;
-  color: #fff;
+  font-size: 1em;
   border: none;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-weight: bold;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-left: 0.5em;
 }
 
-.login-btn:hover {
+.header-right button:hover {
+  background-color: #0056b3;
+}
+#loginStatus {
+  font-size: 1rem;
+  margin-right: 1em;
+}
+/* ========== 로그인/로그아웃 스타일 ========== */
+#loginButton, #signupButton, #logoutButton {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+
+#loginButton:hover, #signupButton:hover, #logoutButton:hover {
   background-color: #0056b3;
 }
 
@@ -161,55 +188,72 @@ nav ul li:hover > .dropdown {
   }
 }
 
-/* 모달 스타일 */
+/* ========== 로그인/회원가입 모달 스타일 ========== */
 .modal {
-  display: none;
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
+  position: relative;
+    background: white;
+    padding: 30px; /* 안쪽 여백 추가 */
+    border-radius: 12px; /* 부드러운 모서리 */
+    width: 100%;
+    max-width: 400px; /* 최대 너비 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out; /* 부드러운 등장 애니메이션 */
 }
 
-.close {
+.modal-content input {
+  width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* 부드러운 모서리 */
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* 닫기 버튼 스타일 */
+button.close {
+  position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+button.close:hover {
+  color: #ff0000;
+}
+
+.modal-content .close {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 1.5em;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
   cursor: pointer;
 }
 
-.modal-content form {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-.modal-content form input {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.modal-content form button {
-  padding: 0.5em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.modal-content .close:hover {
+  color: #ff0000;
 }
 
 /* 예배 컨테이너 스타일 */
@@ -286,4 +330,24 @@ nav ul li:hover > .dropdown {
   margin-top: 0.5em;
   font-size: 1em;
   color: #555;
+}
+
+/* Footer 스타일 */
+footer {
+  width: 100%;
+  background-color: #ffffff; /* 배경색 */
+  text-align: center;
+  padding: 10px 0; /* 위아래 여백 */
+  bottom: 0; /* 화면의 가장 아래 */
+  left: 0; /* 화면의 가장 왼쪽 */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 효과 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+/* Footer 텍스트 스타일 */
+.footer-text {
+  font-size: 1.2rem; /* 글자 크기 */
+  font-weight: bold; /* 굵은 글씨 */
+  color: #333; /* 텍스트 색상 */
+  margin: 0; /* 여백 제거 */
 }

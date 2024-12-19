@@ -1,43 +1,35 @@
-let currentIndex = 0;
+let currentImageIndex = 0;
+const images = document.querySelectorAll('.gallery-item img');
+const descriptions = document.querySelectorAll('.gallery-item .description');
 
-    function openModal(index) {
-        const images = document.querySelectorAll('.gallery-item img');
-        const descriptions = document.querySelectorAll('.gallery-item .description');
-        
-        currentIndex = index;
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalCaption = document.getElementById('modal-caption');
-        
-        modal.style.display = 'flex'; 
-        modalImg.src = images[index].src; 
-        modalCaption.textContent = descriptions[index].textContent; 
-    }
+// 갤러리 모달 열기
+function openGalleryModal(index) {
+  currentImageIndex = index;
+  updateGalleryImage();
+  document.getElementById('galleryModal').style.display = 'flex';
+}
 
-    function closeModal() {
-        const modal = document.getElementById('modal');
-        modal.style.display = 'none'; 
-    }
+// 갤러리 모달 닫기
+function closeGalleryModal() {
+  document.getElementById('galleryModal').style.display = 'none';
+}
 
-    function changeImage(direction) {
-        const images = document.querySelectorAll('.gallery-item img');
-        const descriptions = document.querySelectorAll('.gallery-item .description');
-        
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-        if (currentIndex >= images.length) currentIndex = 0;
-        
-        const modalImg = document.getElementById('modal-img');
-        const modalCaption = document.getElementById('modal-caption');
-        
-        modalImg.src = images[currentIndex].src; 
-        modalCaption.textContent = descriptions[currentIndex].textContent; 
-    }
+// 갤러리 이미지 업데이트
+function updateGalleryImage() {
+  const imgSrc = images[currentImageIndex].src;
+  const imgDescription = descriptions[currentImageIndex].innerText;
 
-// 모달 창 외부 클릭 시 닫기
-window.onclick = function(event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-};
+  document.getElementById('modal-img').src = imgSrc;
+  document.getElementById('modal-caption').innerText = imgDescription;
+}
+
+// 이전/다음 이미지로 이동
+function changeImage(direction) {
+  currentImageIndex += direction;
+  if (currentImageIndex < 0) {
+    currentImageIndex = images.length - 1; // 처음으로 돌아감
+  } else if (currentImageIndex >= images.length) {
+    currentImageIndex = 0; // 마지막으로 돌아감
+  }
+  updateGalleryImage();
+}

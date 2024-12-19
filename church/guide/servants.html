@@ -44,192 +44,201 @@
         </li>
       </ul>
     </nav>
+    <!-- 로그인/회원가입/로그아웃 버튼 -->
     <div class="header-right">
       <div id="loginStatus">로그인하지 않았습니다.</div>
       <button id="loginButton" onclick="openLoginModal()">로그인</button>
+      <button id="signupButton" onclick="openSignupModal()">회원가입</button>
       <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
-    </div>
+  </div>
+
   </header>
 
-  </html>
+</html>
 <!-- 로그인 모달 -->
 <div id="loginModal" class="modal">
   <div class="modal-content">
-    <h2>로그인</h2>
-    <label for="usernameInput">닉네임</label>
-    <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-    
-    <label for="userIdInput">ID</label>
-    <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-    
-    <label for="passwordInput">비밀번호</label>
-    <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-    
-    <button onclick="login()">로그인</button>
-    <button onclick="closeLoginModal()">닫기</button>
+      <h2>로그인</h2>
+      <input type="text" id="usernameInput" placeholder="닉네임">
+      <input type="text" id="userIdInput" placeholder="ID">
+      <input type="password" id="passwordInput" placeholder="비밀번호">
+      <button onclick="login()">로그인</button>
+      <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
   </div>
 </div>
 
-  <main>
-    <div class="team-header">
-      <h1>섬기는 사람들 소개</h1>
-    </div>
+<!-- 회원가입 모달 -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+      <h2>회원가입</h2>
+      <input type="text" id="signupUsernameInput" placeholder="닉네임">
+      <input type="text" id="signupUserIdInput" placeholder="ID">
+      <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+      <button onclick="signup()">회원가입</button>
+      <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+  </div>
+</div>
 
-    <div class="team-container">
-      <!-- 첫 번째 그룹 -->
-      <div class="team-group">
-        <h2 class="team-title">목회팀</h2> <!-- 그룹 제목 추가 -->
-        <div class="team-members">
-          <div class="team-member">
-            <div class="image-container">
-              <img src="../image/minister1.jpg" alt="이은주 사진">
-            </div>
-            <h3>이은주</h3>
-            <p>교육부서담당</p>
+<main>
+  <div class="team-header">
+    <h1>섬기는 사람들 소개</h1>
+  </div>
+
+  <div class="team-container">
+    <!-- 첫 번째 그룹 -->
+    <div class="team-group">
+      <h2 class="team-title">교역자</h2> <!-- 그룹 제목 추가 -->
+      <div class="team-members">
+        <div class="team-member">
+          <div class="image-container">
+            <img src="../image/minister1.jpg" alt="이은주 사진">
           </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="../image/minister2.jpg" alt="김현 사진">
-            </div>
-            <h3>김 현</h3>
-            <p>준전임강도사</p>
-          </div>
+          <h3>이은주</h3>
+          <p>교육부서담당</p>
         </div>
-      </div>
-
-      <!-- 두 번째 그룹 -->
-      <div class="team-group">
-        <h2 class="team-title">장로팀</h2> <!-- 그룹 제목 추가 -->
-        <div class="team-members">
-          <div class="team-member">
-            <div class="image-container">
-              <img src="cheon_chungnam.jpg">
-            </div>
-            <h3>천충남</h3>
-            <p>원로장로</p>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="../image/minister2.jpg" alt="김현 사진">
           </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="park_changsoo.jpg">
-            </div>
-            <h3>박창수</h3>
-            <p>은퇴장로</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="jeong_bokseong.jpg">
-            </div>
-            <h3>정복성</h3>
-            <p>은퇴장로</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="cheon_chungnam.jpg">
-            </div>
-            <h3>조경남</h3>
-            <p>시무장로</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 세 번째 그룹 -->
-      <div class="team-group">
-        <h2 class="team-title">찬양팀</h2> <!-- 그룹 제목 추가 -->
-        <div class="team-members">
-          <div class="team-member">
-            <div class="image-container">
-              <img src="jeong_hyeyoung.jpg">
-            </div>
-            <h3>정혜영</h3>
-            <p>지휘자</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="lee_moonju.jpg">
-            </div>
-            <h3>이문주</h3>
-            <p>반주자</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="yoon-yeoungmin.jpg">
-            </div>
-            <h3>윤영민</h3>
-            <p>반주자</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="kim-yeounghyun.jpg">
-            </div>
-            <h3>김영현</h3>
-            <p>반주자</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="lee-sehwan.jpg">
-            </div>
-            <h3>이세환</h3>
-            <p>반주자</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 네 번째 그룹 -->
-      <div class="team-group">
-        <h2 class="team-title">방송팀</h2> <!-- 그룹 제목 추가 -->
-        <div class="team-members">
-          <div class="team-member">
-            <div class="image-container">
-              <img src="kil_myeoungkab.jpg">
-            </div>
-            <h3>길명갑</h3>
-            <p>방송반</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="kim_jeongsoo.jpg">
-            </div>
-            <h3>김정수</h3>
-            <p>방송반</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="kil_hyunmin.jpg">
-            </div>
-            <h3>길현민</h3>
-            <p>방송반</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 다섯 번째 그룹 -->
-      <div class="team-group">
-        <h2 class="team-title">차량운행팀</h2> <!-- 그룹 제목 추가 -->
-        <div class="team-members">
-          <div class="team-member">
-            <div class="image-container">
-              <img src="cheon_chungnam.jpg">
-            </div>
-            <h3>천충남</h3>
-            <p>차량운행</p>
-          </div>
-          <div class="team-member">
-            <div class="image-container">
-              <img src="cheon_chungnam.jpg">
-            </div>
-            <h3>한규수</h3>
-            <p>차량운행</p>
-          </div>
+          <h3>김 현</h3>
+          <p>준전임강도사</p>
         </div>
       </div>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2024 Euncheon Is Church</p>
-  </footer>
+    <!-- 두 번째 그룹 -->
+    <div class="team-group">
+      <h2 class="team-title">장로</h2> <!-- 그룹 제목 추가 -->
+      <div class="team-members">
+        <div class="team-member">
+          <div class="image-container">
+            <img src="cheon_chungnam.jpg">
+          </div>
+          <h3>천충남</h3>
+          <p>원로장로</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="park_changsoo.jpg">
+          </div>
+          <h3>박창수</h3>
+          <p>은퇴장로</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="jeong_bokseong.jpg">
+          </div>
+          <h3>정복성</h3>
+          <p>은퇴장로</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="cheon_chungnam.jpg">
+          </div>
+          <h3>조경남</h3>
+          <p>시무장로</p>
+        </div>
+      </div>
+    </div>
 
-  <script src="../js/common.js"></script>
+    <!-- 세 번째 그룹 -->
+    <div class="team-group">
+      <h2 class="team-title">할렐루야 찬양대</h2> <!-- 그룹 제목 추가 -->
+      <div class="team-members">
+        <div class="team-member">
+          <div class="image-container">
+            <img src="jeong_hyeyoung.jpg">
+          </div>
+          <h3>정혜영</h3>
+          <p>지휘자</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="lee_moonju.jpg">
+          </div>
+          <h3>이문주</h3>
+          <p>반주자</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="yoon-yeoungmin.jpg">
+          </div>
+          <h3>윤영민</h3>
+          <p>반주자</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="kim-yeounghyun.jpg">
+          </div>
+          <h3>김영현</h3>
+          <p>반주자</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="lee-sehwan.jpg">
+          </div>
+          <h3>이세환</h3>
+          <p>반주자</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 네 번째 그룹 -->
+    <div class="team-group">
+      <h2 class="team-title">방송부</h2> <!-- 그룹 제목 추가 -->
+      <div class="team-members">
+        <div class="team-member">
+          <div class="image-container">
+            <img src="kil_myeoungkab.jpg">
+          </div>
+          <h3>길명갑</h3>
+          <p>방송반</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="kim_jeongsoo.jpg">
+          </div>
+          <h3>김정수</h3>
+          <p>방송반</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="kil_hyunmin.jpg">
+          </div>
+          <h3>길현민</h3>
+          <p>방송반</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 다섯 번째 그룹 -->
+    <div class="team-group">
+      <h2 class="team-title">차량운행</h2> <!-- 그룹 제목 추가 -->
+      <div class="team-members">
+        <div class="team-member">
+          <div class="image-container">
+            <img src="cheon_chungnam.jpg">
+          </div>
+          <h3>천충남</h3>
+          <p>차량운행</p>
+        </div>
+        <div class="team-member">
+          <div class="image-container">
+            <img src="cheon_chungnam.jpg">
+          </div>
+          <h3>한규수</h3>
+          <p>차량운행</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="footer-text">은천제일교회</p>
+</footer>
+
+<script src="../js/common.js"></script>
 </body>
 
 </html>

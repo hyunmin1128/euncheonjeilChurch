@@ -44,29 +44,39 @@
                 </li>
             </ul>
         </nav>
-        <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        <!-- 로그인/회원가입/로그아웃 버튼 -->
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="loginButton" onclick="openLoginModal()">로그인</button>
+            <button id="signupButton" onclick="openSignupModal()">회원가입</button>
+            <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+        </div>
 
-        
     </header>
-   <!-- 로그인 모달 -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>로그인</h2>
-      <label for="usernameInput">닉네임</label>
-      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-      
-      <label for="userIdInput">ID</label>
-      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-      
-      <label for="passwordInput">비밀번호</label>
-      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-      
-      <button onclick="login()">로그인</button>
-      <button onclick="closeLoginModal()">닫기</button>
+    <!-- 로그인 모달 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <input type="text" id="usernameInput" placeholder="닉네임">
+            <input type="text" id="userIdInput" placeholder="ID">
+            <input type="password" id="passwordInput" placeholder="비밀번호">
+            <button onclick="login()">로그인</button>
+            <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
     </div>
-  </div>
+
+    <!-- 회원가입 모달 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <input type="text" id="signupUsernameInput" placeholder="닉네임">
+            <input type="text" id="signupUserIdInput" placeholder="ID">
+            <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+            <button onclick="signup()">회원가입</button>
+            <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
+    </div>
+    
     <h2 class="sub-title">주보 게시판</h2>
 
     <main class="main-layout">
@@ -74,16 +84,20 @@
         <div class="content-area">
             <!-- 사진 영역 -->
             <div class="image-container">
-                <img id="photo1" src="../image/weekly/241208_1.png" alt="주보 사진 1" onclick="openModal(this)">
-                <img id="photo2" src="../image/weekly/241208_2.png" alt="주보 사진 2" onclick="openModal(this)">
+                <img id="weekly-photo1" src="../image/weekly/241208_1.png" alt="주보 사진 1" onclick="openWeeklyModal(this)">
+                <img id="weekly-photo2" src="../image/weekly/241208_2.png" alt="주보 사진 2" onclick="openWeeklyModal(this)">
             </div>
 
             <!-- 날짜 버튼 -->
             <div class="date-buttons">
-                <button onclick="changePhotos('../image/weekly/241103_1.png', '../image/weekly/241103_2.png')">24년 11월 03일</button>
-                <button onclick="changePhotos('../image/weekly/241110_1.png', '../image/weekly/241110_2.png')">24년 11월 10일</button>
-                <button onclick="changePhotos('../image/weekly/241117_1.png', '../image/weekly/241117_2.png')">24년 11월 17일</button>
-                <button onclick="changePhotos('../image/weekly/241201_1.png', '../image/weekly/241201_2.png')">24년 12월 01일</button>
+                <button onclick="changeWeeklyPhotos('../image/weekly/241103_1.png', '../image/weekly/241103_2.png')">24년 11월
+                    03일</button>
+                <button onclick="changeWeeklyPhotos('../image/weekly/241110_1.png', '../image/weekly/241110_2.png')">24년 11월
+                    10일</button>
+                <button onclick="changeWeeklyPhotos('../image/weekly/241117_1.png', '../image/weekly/241117_2.png')">24년 11월
+                    17일</button>
+                <button onclick="changeWeeklyPhotos('../image/weekly/241201_1.png', '../image/weekly/241201_2.png')">24년 12월
+                    01일</button>
             </div>
         </div>
 
@@ -93,18 +107,18 @@
             <button onclick="showPage(2)">2페이지</button>
         </div>
     </main>
-    
-     <!-- 사진 확대를 위한 모달 -->
-    <div id="image-modal" class="modal" onclick="closeModal()">
-        <img id="modal-image" src="" alt="확대된 사진">
+
+    <!-- 사진 확대를 위한 모달 -->
+    <div id="weekly-modal" class="weekly-modal" onclick="closeWeeklyModal()">
+        <img id="weekly-modal-image" src="" alt="확대된 사진">
     </div>
 
     <footer>
-        <p>&copy; 2024 Euncheon Is Church</p>
+        <p class="footer-text">은천제일교회</p>
     </footer>
 
-    <script src="weekly.js"></script>
     <script src="../js/common.js"></script>
+    <script src="weekly.js"></script>
 </body>
 
 </html>

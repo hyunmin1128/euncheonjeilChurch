@@ -11,7 +11,7 @@ function loadNotifications() {
         return;
     }
 
-    notifications.forEach((notification) => {
+    notifications.forEach(notification => {
         const notificationDiv = document.createElement("div");
         notificationDiv.innerHTML = `
             <p>${notification.content}</p>
@@ -33,7 +33,7 @@ function saveNotification() {
     let notifications = JSON.parse(localStorage.getItem("notifications") || "[]");
 
     if (editingNotificationId) {
-        const index = notifications.findIndex((n) => n.id === editingNotificationId);
+        const index = notifications.findIndex(n => n.id === editingNotificationId);
         if (index !== -1) {
             notifications[index].content = input;
         }
@@ -44,39 +44,39 @@ function saveNotification() {
 
     localStorage.setItem("notifications", JSON.stringify(notifications));
     document.getElementById("notification-input").value = "";
-    closeModal();
+    closeNotificationModal();
     loadNotifications();
 }
 
 // 소식 수정
 function editNotification(id) {
     const notifications = JSON.parse(localStorage.getItem("notifications") || "[]");
-    const notification = notifications.find((n) => n.id === id);
+    const notification = notifications.find(n => n.id === id);
 
     if (notification) {
         document.getElementById("notification-input").value = notification.content;
         editingNotificationId = id;
-        openModal("소식 수정");
+        openNotificationModal("소식 수정");
     }
 }
 
 // 소식 삭제
 function deleteNotification(id) {
     let notifications = JSON.parse(localStorage.getItem("notifications") || "[]");
-    notifications = notifications.filter((n) => n.id !== id);
+    notifications = notifications.filter(n => n.id !== id);
     localStorage.setItem("notifications", JSON.stringify(notifications));
     loadNotifications();
 }
 
 // 모달 열기
-function openModal(title = "새 소식 작성") {
+function openNotificationModal(title = "새 소식 작성") {
     document.getElementById("modal-title").innerText = title;
-    document.getElementById("notification-modal").style.display = "flex";
+    document.querySelector(".notification-modal").style.display = "flex";
 }
 
 // 모달 닫기
-function closeModal() {
-    document.getElementById("notification-modal").style.display = "none";
+function closeNotificationModal() {
+    document.querySelector(".notification-modal").style.display = "none";
     editingNotificationId = null;
 }
 

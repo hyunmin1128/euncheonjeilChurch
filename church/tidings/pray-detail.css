@@ -1,176 +1,219 @@
+/* 기본 스타일 */
+body, ul, li, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
 /* 헤더 스타일 */
 header {
     display: flex;
-    justify-content: center; /* 메뉴를 가운데 정렬 */
+    justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 1.5em;
     background-color: #f5f5f5;
     position: relative;
-}
-
-/* 로고 스타일 */
-header .logo {
+  }
+  
+  header .logo {
     position: absolute;
-    left: 1em; /* 로고를 왼쪽에 고정 */
-}
-
-header .logo img {
+    left: 1em;
+  }
+  
+  header .logo img {
     width: 150px;
     height: auto;
-}
-
-/* 네비게이션 메뉴 스타일 */
-nav ul {
+  }
+  
+  nav ul {
     display: flex;
-    gap: 2em; /* 메뉴 항목 간격 설정 */
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
+    gap: 2em;
+  }
+  
+  nav ul li {
     position: relative;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
-    color: #333;
-    font-size: 1.2em; /* 폰트 크기 키움 */
     font-weight: bold;
-    padding: 0.5em 1em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #007BFF;
-}
-
-/* 드롭다운 메뉴 스타일 */
-.dropdown,
-.sub-dropdown {
+    font-size: 150%;
+    color: #333;
+    padding: 1em 2em;
+  }
+  
+  nav ul li > a::after {
+    content: "";
+    border: solid #333;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    transform: rotate(45deg);
+  }
+  
+  nav ul li:hover > a::after {
+    content: none;
+  }
+  
+  .dropdown, .sub-dropdown {
     display: none;
     position: absolute;
     left: 0;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    min-width: 200px; /* 드롭다운 메뉴의 최소 너비 설정 */
-    white-space: nowrap; /* 줄바꿈 방지 */
-}
-
-/* 드롭다운 메뉴 스타일 */
-.dropdown {
+  }
+  
+  .dropdown {
     top: 100%;
-    /* 상단 메뉴 바로 아래에 나타나도록 설정 */
     min-width: 150px;
-}
-
-.dropdown li {
-    position: relative;
-    /* 하위 드롭다운을 위한 상대 위치 */
-}
-
-/* 서브 드롭다운 메뉴 스타일 */
-.sub-dropdown {
-    top: 0;
-    left: 100%;
-    /* 오른쪽에 나타나도록 설정 */
-    min-width: 150px;
-    margin-top: -10px;
-}
-
-/* 드롭다운 항목 */
-.dropdown li a,
-.sub-dropdown li a {
-    display: block;
+    white-space: nowrap; 
+  }
+  
+  .dropdown li a, .sub-dropdown li a {
     padding: 0.5em 1em;
+    display: block;
     color: #333;
     text-decoration: none;
-}
-
-.dropdown li a:hover,
-.sub-dropdown li a:hover {
+  }
+  
+  .dropdown li a:hover, .sub-dropdown li a:hover {
     background-color: #f0f0f0;
-}
-
-/* 마우스를 올렸을 때 드롭다운 및 서브 드롭다운 메뉴 표시 */
-nav ul li:hover>.dropdown,
-.dropdown li:hover>.sub-dropdown {
+  }
+  
+  nav ul li:hover > .dropdown, .dropdown li:hover > .sub-dropdown {
     display: block;
-}
-
-/* 로그인 버튼 스타일 */
-.login-btn {
+  }
+.header-right {
     position: absolute;
-    right: 1em; /* 로그인 버튼을 오른쪽에 고정 */
+    right: 1em;
+    display: flex;
+    gap: 1em;
+  }
+  /* 버튼 기본 스타일 */
+  .header-right button {
     padding: 0.5em 1em;
-    background-color: #333;
-    color: #fff;
+    font-size: 1em;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-btn:hover {
+    border-radius: 5px;
     background-color: #007BFF;
-}
-/* 모달 스타일 */
+    color: white;
+    cursor: pointer;
+    margin-left: 0.5em;
+  }
+  
+  .header-right button:hover {
+    background-color: #0056b3;
+  }
+  #loginStatus {
+    font-size: 1rem;
+    margin-right: 1em;
+  }
+  /* ========== 로그인/로그아웃 스타일 ========== */
+  #loginButton, #signupButton, #logoutButton {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #loginButton:hover, #signupButton:hover, #logoutButton:hover {
+    background-color: #0056b3;
+  }
+  
+
+/* ========== 로그인/회원가입 모달 스타일 ========== */
 .modal {
-    display: none;
-    /* 기본적으로 숨김 */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* 배경 어둡게 */
+    background: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-/* 모달 창 내용 */
-.modal-content {
-    background-color: #fff;
-    padding: 2em;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
+  }
+  
+  .modal-content {
     position: relative;
-}
-
-/* 닫기 버튼 */
-.close {
+      background: white;
+      padding: 30px; /* 안쪽 여백 추가 */
+      border-radius: 12px; /* 부드러운 모서리 */
+      width: 100%;
+      max-width: 400px; /* 최대 너비 */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out; /* 부드러운 등장 애니메이션 */
+  }
+  
+  .modal-content input {
+    width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px; /* 부드러운 모서리 */
+      font-size: 1rem;
+      box-sizing: border-box;
+  }
+  
+  /* 닫기 버튼 스타일 */
+  button.close {
+    position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.2s ease;
+  }
+  
+  button.close:hover {
+    color: #ff0000;
+  }
+  
+  .modal-content .close {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 1.5em;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
     cursor: pointer;
-}
-
-/* 폼 필드 스타일 */
-.modal-content form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.modal-content form input {
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.modal-content form button {
-    padding: 0.5em;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+  }
+  
+  .modal-content .close:hover {
+    color: #ff0000;
+  }
+  
 /* 섹션 스타일 */
 .sections {
     flex-grow: 1;
@@ -224,12 +267,24 @@ nav ul li:hover>.dropdown,
     /* 상단 여백 제거 */
 }
 
-
-/* 푸터 스타일 */
+/* Footer 스타일 */
 footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #f5f5f5;
+  width: 100%;
+  background-color: #ffffff; /* 배경색 */
+  text-align: center;
+  padding: 10px 0; /* 위아래 여백 */
+  bottom: 0; /* 화면의 가장 아래 */
+  left: 0; /* 화면의 가장 왼쪽 */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 효과 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+/* Footer 텍스트 스타일 */
+.footer-text {
+  font-size: 1.2rem; /* 글자 크기 */
+  font-weight: bold; /* 굵은 글씨 */
+  color: #333; /* 텍스트 색상 */
+  margin: 0; /* 여백 제거 */
 }
 
 body {

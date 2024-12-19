@@ -44,42 +44,53 @@
                 </li>
             </ul>
         </nav>
-        <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        <!-- 로그인/회원가입/로그아웃 버튼 -->
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="loginButton" onclick="openLoginModal()">로그인</button>
+            <button id="signupButton" onclick="openSignupModal()">회원가입</button>
+            <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+        </div>
 
     </header>
 
     <!-- 로그인 모달 -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>로그인</h2>
-      <label for="usernameInput">닉네임</label>
-      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-      
-      <label for="userIdInput">ID</label>
-      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-      
-      <label for="passwordInput">비밀번호</label>
-      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-      
-      <button onclick="login()">로그인</button>
-      <button onclick="closeLoginModal()">닫기</button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <input type="text" id="usernameInput" placeholder="닉네임">
+            <input type="text" id="userIdInput" placeholder="ID">
+            <input type="password" id="passwordInput" placeholder="비밀번호">
+            <button onclick="login()">로그인</button>
+            <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
     </div>
-  </div>
+
+    <!-- 회원가입 모달 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <input type="text" id="signupUsernameInput" placeholder="닉네임">
+            <input type="text" id="signupUserIdInput" placeholder="ID">
+            <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+            <button onclick="signup()">회원가입</button>
+            <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
+    </div>
+    
     <main>
         <section class="notification-section">
             <h1>교회 소식</h1>
             <div id="notification-list">
                 <p>등록된 소식이 없습니다.</p>
             </div>
-            <button onclick="openModal()">새 소식 작성</button>
+            <button onclick="openNotificationModal()">새 소식 작성</button>
         </section>
 
         <!-- 소식 작성/수정 모달 -->
-        <div id="notification-modal" class="modal">
+        <div id="notificationModal" class="notification-modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeNotificationModal()">&times;</span>
                 <h3 id="modal-title">새 소식 작성</h3>
                 <textarea id="notification-input" rows="5" placeholder="소식을 입력하세요"></textarea>
                 <button onclick="saveNotification()">저장</button>
@@ -87,7 +98,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 은천제일교회</p>
+        <p class="footer-text">은천제일교회</p>
     </footer>
 
     <script src="./notification.js"></script>

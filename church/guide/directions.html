@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>은천제일교회</title>
     <link rel="stylesheet" href="./directions.css" />
-    <script 
-    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1564c3524ff579fdf3ad272498c30478&libraries=services">
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=1564c3524ff579fdf3ad272498c30478&libraries=services">
     </script>
     <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
 </head>
@@ -47,38 +46,49 @@
                 </li>
             </ul>
         </nav>
-        <div id="loginStatus">로그인하지 않았습니다.</div>
-        <button id="signupButton" onclick="openModal()">회원가입</button>
-        <button id="logoutButton" onclick="clearLoginInfo()" style="display: none;">로그아웃</button>
+        <!-- 로그인/회원가입/로그아웃 버튼 -->
+        <div class="header-right">
+            <div id="loginStatus">로그인하지 않았습니다.</div>
+            <button id="loginButton" onclick="openLoginModal()">로그인</button>
+            <button id="signupButton" onclick="openSignupModal()">회원가입</button>
+            <button id="logoutButton" onclick="logout()" style="display: none;">로그아웃</button>
+        </div>
+
     </header>
 
 
     <!-- 로그인 모달 -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-      <h2>로그인</h2>
-      <label for="usernameInput">닉네임</label>
-      <input type="text" id="usernameInput" placeholder="닉네임을 입력하세요">
-      
-      <label for="userIdInput">ID</label>
-      <input type="text" id="userIdInput" placeholder="ID를 입력하세요">
-      
-      <label for="passwordInput">비밀번호</label>
-      <input type="password" id="passwordInput" placeholder="비밀번호를 입력하세요">
-      
-      <button onclick="login()">로그인</button>
-      <button onclick="closeLoginModal()">닫기</button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <input type="text" id="usernameInput" placeholder="닉네임">
+            <input type="text" id="userIdInput" placeholder="ID">
+            <input type="password" id="passwordInput" placeholder="비밀번호">
+            <button onclick="login()">로그인</button>
+            <button class="close" onclick="closeLoginModal('loginModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
     </div>
-  </div>
+
+    <!-- 회원가입 모달 -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <input type="text" id="signupUsernameInput" placeholder="닉네임">
+            <input type="text" id="signupUserIdInput" placeholder="ID">
+            <input type="password" id="signupPasswordInput" placeholder="비밀번호">
+            <button onclick="signup()">회원가입</button>
+            <button class="close" onclick="closeSignupModal('signupModal')">닫기</button> <!-- 닫기 버튼 -->
+        </div>
+    </div>
     <!-- 지도 표시 영역 -->
-    <h2>오시는 길</h2>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-    <p>주소 : 08715 서울특별시 관악구 국회단지길 14</p>    
-    <p>TEL : 02-871-7851</p>
-    <p>FAX : 02-871-7852</p>
-    
+    <div style="text-align: center;">
+        <h2>오시는 길</h2>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <p>08715 서울특별시 관악구 국회단지길 14 / TEL : 02-871-7851 / FAX : 02-871-7852</p>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Euncheon Is Church</p>
+        <p class="footer-text">은천제일교회</p>
     </footer>
     <script src="./directions.js"></script>
     <script src="../js/common.js"></script>

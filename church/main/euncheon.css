@@ -105,95 +105,112 @@ nav ul li:hover > a::after {
 nav ul li:hover > .dropdown, .dropdown li:hover > .sub-dropdown {
   display: block;
 }
-
-/* 로그인 관련 스타일 */
 .header-right {
   position: absolute;
   right: 1em;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
-  align-items: center;
   gap: 1em;
 }
-
-#loginStatus {
+/* 버튼 기본 스타일 */
+.header-right button {
+  padding: 0.5em 1em;
   font-size: 1em;
-  color: #333;
-  font-weight: bold;
-}
-
-button#loginButton, button#logoutButton {
-  padding: 0.5em 1.2em;
-  background-color: #333;
-  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-left: 0.5em;
 }
 
-button#loginButton:hover, button#logoutButton:hover {
-  background-color: #555;
+.header-right button:hover {
+  background-color: #0056b3;
+}
+#loginStatus {
+  font-size: 1rem;
+  margin-right: 1em;
+}
+/* ========== 로그인/로그아웃 스타일 ========== */
+#loginButton, #signupButton, #logoutButton {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
 }
 
-button#loginButton {
-  display: block;
+#loginButton:hover, #signupButton:hover, #logoutButton:hover {
+  background-color: #0056b3;
 }
 
-button#logoutButton {
-  display: none;
-}
-
-/* 로그인 모달 스타일 */
+/* ========== 로그인/회원가입 모달 스타일 ========== */
 .modal {
-  display: none;
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 2em;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
   position: relative;
-}
-
-.modal-content h2 {
-  margin-bottom: 1em;
-  font-size: 1.5em;
+    background: white;
+    padding: 30px; /* 안쪽 여백 추가 */
+    border-radius: 12px; /* 부드러운 모서리 */
+    width: 100%;
+    max-width: 400px; /* 최대 너비 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out; /* 부드러운 등장 애니메이션 */
 }
 
 .modal-content input {
   width: 100%;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* 부드러운 모서리 */
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
-.modal-content button {
-  padding: 0.5em 1em;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+/* 닫기 버튼 스타일 */
+button.close {
+  position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+button.close:hover {
+  color: #ff0000;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.modal-content button:hover {
-  background-color: #555;
+.modal-content .close:hover {
+  color: #ff0000;
 }
 
 /* 슬라이더 스타일 */
@@ -259,10 +276,67 @@ button#logoutButton {
   border-radius: 4px;
 }
 
+/* 주보 섹션 이미지 스타일 */
+.weekly-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 이미지 그리드의 최소 크기 300px */
+  gap: 20px; /* 이미지 간격 */
+  margin-top: 30px;
+}
+
+.weekly-photos a img {
+  width: 100%; /* 이미지가 그리드 셀 전체를 차지하도록 설정 */
+  height: auto;
+  border-radius: 10px; /* 모서리를 약간 둥글게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 확대와 그림자 효과 */
+}
+
+.weekly-photos a img:hover {
+  transform: scale(1.1); /* 이미지 확대 효과 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 호버 시 그림자 강조 */
+}
+
+/* Gallery 사진 스타일 */
+.gallery-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 사진 그리드 */
+  gap: 10px; /* 사진 간격 */
+  margin-top: 10px;
+}
+
+.gallery-photos img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-photos img:hover {
+  transform: scale(1.05); /* 확대 효과 */
+}
+
+/* Footer 스타일 */
 footer {
+  width: 100%;
+  background-color: #ffffff; /* 배경색 */
   text-align: center;
-  padding: 1em;
-  background-color: #f5f5f5;
+  padding: 10px 0; /* 위아래 여백 */
+  bottom: 0; /* 화면의 가장 아래 */
+  left: 0; /* 화면의 가장 왼쪽 */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 효과 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+/* Footer 텍스트 스타일 */
+.footer-text {
+  font-size: 1.2rem; /* 글자 크기 */
+  font-weight: bold; /* 굵은 글씨 */
+  color: #333; /* 텍스트 색상 */
+  margin: 0; /* 여백 제거 */
 }
 
 .content-link {
